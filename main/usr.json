@@ -1,0 +1,5248 @@
+{
+	"version": "2021.12.16",
+	"settings": {
+		"project": {
+			"title": "Проект для регрессионного тестирования основного функционала"
+		}
+		
+		,
+		"AllowEditTableView": true
+	},
+	"securityPolicies": {
+		"appGroup": {
+			"name": "TestApp"
+		},
+		"auth": [ 
+			{
+				"type": "certificates"
+			},
+			{
+                "type": "esia",
+                "defaultGroup": "UsersGroup"
+            },
+			{
+				"type": "allowRegister", // Разрешаем регистрацию
+				"DefaultGroup": "UsersGroup" // группа для зарегистрированных пользователей
+			}
+		],
+		"users": [
+			{
+				"recid": "143b91f2-5637-49ca-b205-babb32ae804f",
+				"name": "Administrator",
+				"description": "Администратор",
+				"login": "admin",
+				"password": "admin",
+				"email": "admin@mfc.ru",
+				"parentGroups": [
+					"AdministratorsGroup"
+				]
+			},
+			{
+				"name": "User1",
+				"description": "User1",
+				"login": "user1",
+				"password": "user1",
+				"email": "user1@mfc.ru",
+				"parentGroups": [
+					"UsersGroup"
+				]
+			}
+		],
+		"groups": [
+			{
+				"name": "AdministratorsGroup",
+				"description": "Администраторы",
+				"parentGroup": "TestApp",
+				"roles": [
+					"AdministratorsRole"
+				]
+			},
+			{
+				"name": "UsersGroup",
+				"description": "Пользователи",
+				"parentGroup": "TestApp",
+				"roles": [
+					"UsersRole"
+				]
+			}
+		],
+		"roles": [
+			{
+				"name": "AdministratorsRole",
+				"privileges": [
+					"AdministratorsPrivileges"
+				]
+			},
+			{
+				"name": "UsersRole",
+				"privileges": [
+					"UsersPrivileges"
+				]
+				,
+				"dataPolicies": [
+					"AccessDeny"
+				]
+			}
+		],
+		"privileges": [
+			{
+				"name": "AdministratorsPrivileges",
+				"label": "Привилегии группы Администраторы",
+				"description": "Привилегии группы Администраторы",
+				"isEnabled": true,
+				"permissions": [
+					{
+						"objectName": "test_workflow_method_table",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "rdev___types_var_table_2",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "rdev___types_var_table",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "RDEV___ModelSnapshot",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "test_static_method_table",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},					
+					{
+						"objectName": "update_method_test_table",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "insert_method_test_table",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "findbyparams_method_test_table",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "findbyrecid_method_test_table",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "procedure_test_table",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "procedure_params_test_table",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "method_isenabled_test_table",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "method_fields_test_table",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "method_request_test_table",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "method_test_table",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "rdev___auth_groups",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "rdev___auth_groupuser",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "rdev___auth_object_access",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "rdev___updateusers",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "rdev___updatereceivers",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "rdev___updateservers",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "rdev___updateprocesslog",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "rdev___sync_nodes",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "rdev___sync_nodes_receiver",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "test_sysfile_table",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "rdev___auth_users",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "rdev___syscertificates",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "tableview_table",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "rdev___shadow_tasks",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "types_table",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "types_var_table",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "types_var_table_2",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "relation_table",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "test_readonly_fields_table",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "test_validation_table",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "test_displaysize_fields_table",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "test_sequence",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "hassortindex_table",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "allowsorting_table",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "filessorting_table",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "hasextendedfilter_table",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "isimportkey_table",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "test_name_displayname_description_table",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "system_autolist_table",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "users_autolist_table",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "mixed_autolist_table",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "test_autolookup_table",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "system_customgroups_table",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "users_customgroups_table",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "mixed_customgroups_table",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "isenabled_customgroups_table",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "relatedtable_customgroups_table",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "customfields_sorting_table",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "customfields_sorting_table2",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "systemfields_sorting_table",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "mixedfields_sorting_table",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "test_events_onopen_table1",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "test_events_onopen_table2",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "test_events_onopen_table3",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "test_events_onopen_table4",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "test_events_onopen_table5",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "test_events_onopen_table6",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "test_string_counters_table",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "test_sysdate_counters_table",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "test_systimedate_counters_table",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "test_systime_counters_table",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "test_sysint_counters_table",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "test_sysnumber_counters_table",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "test_sysdecimal_counters_table",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "test_sysmoney_counters_table",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "test_sysrelation_counters_table",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "test_sysrelation_counters_table1",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "test_sysrelation_counters_table2",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "test_sysfile_counters_table",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "test_sysenum_counters_table",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "test_sysboolean_counters_table",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "test_sysguid_counters_table",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},{
+						"objectName": "types_table1",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},{
+						"objectName": "test_systemfields_counters_table",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "mainMenu",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "rdev___updateprojects",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "rdev___envvariables",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "rdev___history",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "delete_method_test_table",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "methodForSysFileInModalWindow",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "staticMethodExecContextMenu",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "methodDeleteContextMenu",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "methodUpdateContextMenu",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "methodInsertContextMenu",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "methodFindByParamsContextMenu",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "methodFindByRecIdContextMenu",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "nestedContextMenu",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "procedureContextMenu",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "procedureParamsContextMenu",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "methodFieldsContextMenu",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "methodRequestContextMenu",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "workflowRsmevSendXmlContextMenu",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "workflowMethodContextMenu",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "methodContextMenu",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "pluginTest",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "test_workflow_method_rsmev_sendxml",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "visible_table",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "contextMenu",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					}
+				]
+			},
+			{
+				"name": "UsersPrivileges",
+				"label": "Привилегии группы Users",
+				"description": "Привилегии группы Users",
+				"isEnabled": true,
+				"permissions": [
+					{
+						"objectName": "methodForSysFileInModalWindow",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "staticMethodExecContextMenu",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "methodDeleteContextMenu",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "methodUpdateContextMenu",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "methodInsertContextMenu",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "methodFindByParamsContextMenu",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "methodFindByRecIdContextMenu",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "nestedContextMenu",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "procedureContextMenu",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "procedureParamsContextMenu",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "methodFieldsContextMenu",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "methodRequestContextMenu",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "workflowRsmevSendXmlContextMenu",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "workflowMethodContextMenu",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "methodContextMenu",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "pluginTest",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "test_workflow_method_rsmev_sendxml",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "test_workflow_method_table",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},	
+					{
+						"objectName": "test_static_method_table",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},					
+					{
+						"objectName": "update_method_test_table",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "insert_method_test_table",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "findbyparams_method_test_table",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "findbyrecid_method_test_table",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "procedure_test_table",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "procedure_params_test_table",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "method_isenabled_test_table",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "method_fields_test_table",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "method_request_test_table",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "method_test_table",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "types_table",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"create"
+						]
+					},
+					{
+						"objectName": "types_var_table",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "types_var_table_2",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "relation_table",
+						"objectType": "table",
+						"accessLevels": [
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "tableview_table",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "test_readonly_fields_table",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write"
+						]
+					},
+					{
+						"objectName": "test_validation_table",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"create"
+						]
+					},
+					{
+						"objectName": "test_displaysize_fields_table",
+						"objectType": "table",
+						"accessLevels": [
+							"write"
+						]
+					},
+					{
+						"objectName": "test_sequence",
+						"objectType": "table",
+						"accessLevels": [
+							"delete"
+						]
+					},
+					{
+						"objectName": "hassortindex_table",
+						"objectType": "table",
+						"accessLevels": [
+							"create"
+						]
+					},
+					{
+						"objectName": "allowsorting_table",
+						"objectType": "table",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "mainMenu",
+						"objectType": "menuItem",
+						"accessLevels": [
+							"read"
+						]
+					},
+					{
+						"objectName": "visible_table",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					},
+					{
+						"objectName": "relatedtable_customgroups_table",
+						"objectType": "table",
+						"accessLevels": [
+							"read",
+							"write",
+							"create",
+							"delete"
+						]
+					}
+				]
+			}
+		]
+		,
+		"dataPolicies": [
+			{
+				"name": "AccessDeny",
+				"label": "У пользователя User1 нет доступа к полю sysstring_test в таблице tableview_table",
+				"objects": [
+					"sysstring_test"
+				],
+				"objectType": "tableField",
+				"parentTableName": "tableview_table",
+				"isEnabled": true,
+				"restrictions": [
+					{
+						"sqlQuery": "select * from tableview_table where recid = '@activeUser.recid'",
+						"accessLevel": "read"
+					}
+				]
+			}
+			// ,
+			// {
+			// 	"name": "AccessDeny",
+			// 	"label": "Пользователи не могут редактировать поля профиля",
+			// 	"objects": [
+			// 		"systimedate_test",
+			// 		"systime_test"
+			// 	],
+			// 	"objectType": "tableField",
+			// 	"parentTableName": "tableview_table",
+			// 	"isEnabled": true,
+			// 	"restrictions": [				
+			// 		// {
+			// 		// 	"query": "['sysstring_test', '=', '123']",
+			// 		// 	"accessLevel": "create"
+			// 		// },			
+			// 		{
+			// 			"query": "['sysstring_test', '=', '123']",
+			// 			"accessLevel": "read"
+			// 		},
+			// 		// {
+			// 		// 	"query": "['sysstring_test', '=', '123']",
+			// 		// 	"accessLevel": "write"
+			// 		// },
+			// 		{
+			// 			"query": "['sysstring_test', '=', '123']",
+			// 			"accessLevel": "delete"
+			// 		}
+			// 	]
+			// }
+			// {
+			// 	"name": "AccessDeny",
+			// 	"label": "Пользователи не могут редактировать поля профиля",
+			// 	"objects": [
+			// 		"tableview_table"
+			// 	],
+			// 	"objectType": "table",
+			// 	"parentTableName": null,
+			// 	"isEnabled": true,
+			// 	"restrictions": [				
+			// 		// {
+			// 		// 	"query": "['sysstring_test', '=', '123']",
+			// 		// 	"accessLevel": "create"
+			// 		// },			
+			// 		{
+			// 			"query": "['sysstring_test', '=', '123']",
+			// 			"accessLevel": "read"
+			// 		},
+			// 		// {
+			// 		// 	"query": "['sysstring_test', '=', '123']",
+			// 		// 	"accessLevel": "write"
+			// 		// },
+			// 		{
+			// 			"query": "['sysstring_test', '=', '123']",
+			// 			"accessLevel": "delete"
+			// 		}
+			// 	]
+			// },
+			// {
+            //     "name": "AccessDeny",
+            //     "label": "У пользователя User1 нет доступа к полю sysstring_test в таблице tableview_table",
+            //     "objects": [
+            //         "sysstring_test" 
+            //     ],
+            //     "objectType": "tableField",
+            //     "parentTableName": "tableview_table",
+            //     "isEnabled": true,
+            //     "restrictions": [
+            //         {
+            //             "sqlQuery": "select * from tableview_table where recid = '@activeUser.recid'",
+            //             "accessLevel": "read" 
+            //         }
+            //     ]
+            // }
+        ]
+	},
+	"menus": [
+		{
+			"name": "mainMenu",
+			"title": "Главное меню",
+			"hint": "Главное меню",
+			"typeMenuItem": "Submenu",
+			"submenuItems": [
+				{
+					"name": "dataTypesMenu",
+					"title": "1. Типы данных",
+					"typeMenuItem": "Submenu",
+					"submenuItems": [
+						{
+							"name": "typesMenuItem",
+							"title": "Основные типы данных",
+							"typeMenuItem": "Table",
+							"object": "types_table"
+						},
+						{
+							"name": "typesVarMenuItem",
+							"title": "Основные типы данных (наследование)",
+							"typeMenuItem": "Table",
+							"object": "types_var_table"
+						},
+						{
+							"name": "typesVarMenuItem",
+							"title": "Основные типы данных (наследование доп)",
+							"typeMenuItem": "Table",
+							"object": "types_var_table_2"
+						},
+						{
+							"name": "relationMenuItem",
+							"title": "Все ссылающиеся типы",
+							"typeMenuItem": "Table",
+							"object": "relation_table"
+						}
+					]
+				},
+				{
+					"name": "dataExtendedTypesMenu",
+					"title": "2. Расширенные типы данных",
+					"typeMenuItem": "Submenu",
+					"submenuItems": [
+						{
+							"name": "readOnlyMenu",
+							"title": "readOnly, isCalculated, default",
+							"typeMenuItem": "Table",
+							"object": "test_readonly_fields_table"
+						},
+						{
+							"name": "validationFieldsMenu",
+							"title": "validationRules",
+							"typeMenuItem": "Table",
+							"object": "test_validation_table"
+						},
+						{
+							"name": "displaySizeMenu",
+							"title": "displaySize",
+							"typeMenuItem": "Table",
+							"object": "test_displaysize_fields_table"
+						},
+						{
+							"name": "sequenceMenu",
+							"title": "sequence",
+							"typeMenuItem": "Table",
+							"object": "test_sequence"
+						},
+						{
+							"name": "hasSortedIndexMenu",
+							"title": "hasSortedIndex",
+							"typeMenuItem": "Table",
+							"object": "hassortindex_table"
+						},
+						{
+							"name": "filesSortingMenu",
+							"title": "filesSorting",
+							"typeMenuItem": "Table",
+							"object": "filessorting_table"
+						},
+						{
+							"name": "allowSortingMenu",
+							"title": "allowSorting",
+							"typeMenuItem": "Table",
+							"object": "allowsorting_table"
+						},
+						{
+							"name": "hasExtendedFilterMenu",
+							"title": "hasExtendedFilter",
+							"typeMenuItem": "Table",
+							"object": "hasextendedfilter_table"
+						},
+						{
+							"name": "isimportkeyMenu",
+							"title": "isimportkey - false",
+							"typeMenuItem": "Table",
+							"object": "isimportkey_table"
+						},
+						{
+							"name": "visible",
+							"title": "visible",
+							"typeMenuItem": "Table",
+							"object": "visible_table"
+						}
+					]
+				},				
+				{
+					"name": "tablesFeaturesMenu",
+					"title": "3. Свойства таблиц",
+					"typeMenuItem": "Submenu",
+					"submenuItems": [
+						{
+							"name": "nameDisplayNameDescriptionMenu",
+							"title": "name, displayName и description",
+							"typeMenuItem": "Table",
+							"object": "test_name_displayname_description_table"
+						},
+						{
+							"name": "tableViewMenu",
+							"title": "tableView",
+							"typeMenuItem": "Table",
+							"object": "tableview_table"
+						},
+						{
+							"name": "fieldsGroupMenu",
+							"title": "fieldsGroup",
+							"typeMenuItem": "Submenu",
+							"submenuItems": [
+								{
+									"name": "systemAutolistTableMenu",
+									"title": "AutoList - системные поля",
+									"typeMenuItem": "Table",
+									"object": "system_autolist_table"
+								},
+								{
+									"name": "systemAutolistTableMenu",
+									"title": "AutoList - пользовательские поля",
+									"typeMenuItem": "Table",
+									"object": "users_autolist_table"
+								},
+								{
+									"name": "mixedAutolistTableMenu",
+									"title": "AutoList - смешанные поля",
+									"typeMenuItem": "Table",
+									"object": "mixed_autolist_table"
+								},
+								{
+									"name": "testAutolookupTableMenu",
+									"title": "AutoLookup",
+									"typeMenuItem": "Table",
+									"object": "test_autolookup_table"
+								},
+								{
+									"name": "systemCustomgroupsTableMenu",
+									"title": "CustomGroups - системные поля",
+									"typeMenuItem": "Table",
+									"object": "system_customgroups_table"
+								},
+								{
+									"name": "usersCustomgroupsTableMenu",
+									"title": "CustomGroups - пользовательские поля",
+									"typeMenuItem": "Table",
+									"object": "users_customgroups_table"
+								},
+								{
+									"name": "mixedCustomgroupsTableMenu",
+									"title": "CustomGroups - смешанные поля",
+									"typeMenuItem": "Table",
+									"object": "mixed_customgroups_table"
+								},
+								{
+									"name": "isenabledCustomgroupsTableMenu",
+									"title": "CustomGroups - isEnabled",
+									"typeMenuItem": "Table",
+									"object": "isenabled_customgroups_table"
+								},
+								{
+									"name": "relatedtableCustomgroupsTableMenu",
+									"title": "CustomGroups - таблицы в карточке",
+									"typeMenuItem": "Table",
+									"object": "relatedtable_customgroups_table"
+								}
+							]
+						},
+						{
+							"name": "sortingGroupMenu",
+							"title": "sorting",
+							"typeMenuItem": "Submenu",
+							"submenuItems": [
+								{
+									"name": "customfieldsSortingTableMenu",
+									"title": "Дефолтная сортировка пользовательских полей 1",
+									"typeMenuItem": "Table",
+									"object": "customfields_sorting_table"
+								},
+								{
+									"name": "customfieldsSortingTable2Menu",
+									"title": "Дефолтная сортировка пользовательских полей 2",
+									"typeMenuItem": "Table",
+									"object": "customfields_sorting_table2"
+								},
+								{
+									"name": "systemfieldsSortingTableMenu",
+									"title": "Дефолтная сортировка системных полей",
+									"typeMenuItem": "Table",
+									"object": "systemfields_sorting_table"
+								},
+								{
+									"name": "mixedfieldsSortingTableMenu",
+									"title": "Дефолтная сортировка системных и пользовательских полей в одной таблице",
+									"typeMenuItem": "Table",
+									"object": "mixedfields_sorting_table"
+								}
+							]
+						},
+						{
+							"name": "eventsGroupMenu",
+							"title": "onOpen",
+							"typeMenuItem": "Submenu",
+							"submenuItems": [
+								{
+									"name": "testEventsOnopenTable1Menu",
+									"title": "Cвойство Events задано корректно",
+									"typeMenuItem": "Table",
+									"object": "test_events_onopen_table1"
+								},
+								{
+									"name": "testEventsOnopenTable2Menu",
+									"title": "Cвойство Events содержит событие onOpen в нижнем регистре - onopen",
+									"typeMenuItem": "Table",
+									"object": "test_events_onopen_table2"
+								},
+								{
+									"name": "testEventsOnopenTable3Menu",
+									"title": "Cвойство Events содержит событие onOpen, для которого указан не существующий метод",
+									"typeMenuItem": "Table",
+									"object": "test_events_onopen_table3"
+								},
+								{
+									"name": "testEventsOnopenTable4Menu",
+									"title": "Cвойство Events содержит событие onOpen, для которого не указан метод",
+									"typeMenuItem": "Table",
+									"object": "test_events_onopen_table4"
+								},
+								{
+									"name": "testEventsOnopenTable5Menu",
+									"title": "Cвойство Events не содержит элементов",
+									"typeMenuItem": "Table",
+									"object": "test_events_onopen_table5"
+								},
+								{
+									"name": "testEventsOnopenTable6Menu",
+									"title": "Функция возвращает ошибку",
+									"typeMenuItem": "Table",
+									"object": "test_events_onopen_table6"
+								}
+							]
+						},
+						{
+							"name": "countersMenu",
+							"title": "counters",
+							"typeMenuItem": "Submenu",
+							"submenuItems": [
+								{
+									"name": "SysStringItem",
+									"title": "SysString",
+									"typeMenuItem": "Table",
+									"object": "test_string_counters_table"
+								},
+								{
+									"name": "SysDateItem",
+									"title": "SysDate",
+									"typeMenuItem": "Table",
+									"object": "test_sysdate_counters_table"
+								},
+								{
+									"name": "SysTimeDateItem",
+									"title": "SysTimeDate",
+									"typeMenuItem": "Table",
+									"object": "test_systimedate_counters_table"
+								},
+								{
+									"name": "SysTimeItem",
+									"title": "SysTime",
+									"typeMenuItem": "Table",
+									"object": "test_systime_counters_table"
+								},
+								{
+									"name": "SysIntItem",
+									"title": "SysInt",
+									"typeMenuItem": "Table",
+									"object": "test_sysint_counters_table"
+								},
+								{
+									"name": "SysNumberItem",
+									"title": "SysNumber",
+									"typeMenuItem": "Table",
+									"object": "test_sysnumber_counters_table"
+								},
+								{
+									"name": "SysDecimalItem",
+									"title": "SysDecimal",
+									"typeMenuItem": "Table",
+									"object": "test_sysdecimal_counters_table"
+								},
+								{
+									"name": "SysMoneyItem",
+									"title": "SysMoney",
+									"typeMenuItem": "Table",
+									"object": "test_sysmoney_counters_table"
+								},
+								{
+									"name": "SysRelationItem",
+									"title": "SysRelation (String)",
+									"typeMenuItem": "Table",
+									"object": "test_sysrelation_counters_table"
+								},
+								{
+									"name": "SysRelationItem1",
+									"title": "SysRelation (Int)",
+									"typeMenuItem": "Table",
+									"object": "test_sysrelation_counters_table1"
+								},
+								{
+									"name": "SysRelationItem2",
+									"title": "SysRelation (Guid)",
+									"typeMenuItem": "Table",
+									"object": "test_sysrelation_counters_table2"
+								},
+								{
+									"name": "SysFileItem",
+									"title": "SysFile",
+									"typeMenuItem": "Table",
+									"object": "test_sysfile_counters_table"
+								},
+								{
+									"name": "SysEnumItem",
+									"title": "SysEnum",
+									"typeMenuItem": "Table",
+									"object": "test_sysenum_counters_table"
+								},
+								{
+									"name": "SysBooleanItem",
+									"title": "SysBoolean",
+									"typeMenuItem": "Table",
+									"object": "test_sysboolean_counters_table"
+								},
+								{
+									"name": "SysGuidItem",
+									"title": "SysGuid",
+									"typeMenuItem": "Table",
+									"object": "test_sysguid_counters_table"
+								},
+								{
+									"name": "SeveralConditionsItem",
+									"title": "Несколько условий",
+									"typeMenuItem": "Table",
+									"object": "types_table1"
+								},
+								{
+									"name": "SystemFieldsItem",
+									"title": "Счётчики для системных полей",
+									"typeMenuItem": "Table",
+									"object": "test_systemfields_counters_table"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "MethodsMenu",
+					"title": "4. Методы",
+					"typeMenuItem": "Submenu",
+					"submenuItems": [
+						{
+							"name": "MethodProviderMenu",
+							"title": "4.1 Методы класса MethodProvider",
+							"typeMenuItem": "Submenu",
+							"submenuItems": [
+								{
+									"name": "FindByRecIdMenu",
+									"title": "FindByRecId",
+									"typeMenuItem": "Table",
+									"object": "findbyrecid_method_test_table"
+								},
+								{
+									"name": "FindByParamsMenu",
+									"title": "findbyparams",
+									"typeMenuItem": "Table",
+									"object": "findbyparams_method_test_table"
+								}
+							]
+						}			
+					]
+				}			
+			]
+		},
+		
+// Контекстное меню
+		//MethodProvider
+		{
+			"name": "methodFindByRecIdContextMenu",
+			"title": "Контекстное меню",
+			"hint": "Контекстное меню",
+			"typeMenuItem": "Submenu",
+			"submenuItems": [
+				{
+					"name": "testFindByRecIdSuccessMethodItem",
+					"title": "Тестовый метод FindByRecId (Успех)",
+					"typeMenuItem": "Method",
+					"object": "test_findbyrecid_success"
+				},
+				{
+					"name": "testFindByRecIdNonexistentRecidMethodItem",
+					"title": "Тест функции FindByRecId (Ошибка: Не существующий recid)",
+					"typeMenuItem": "Method",
+					"object": "test_findbyrecid_error_nonexistent_recid"
+				},
+				{
+					"name": "testFindByRecIdNullRecidMethodItem",
+					"title": "Тест функции FindByRecId (Ошибка: Параметр recid установлен в NULL)",
+					"typeMenuItem": "Method",
+					"object": "test_findbyrecid_error_null_recid"
+				}
+			]
+		},
+		{
+			"name": "methodFindByParamsContextMenu",
+			"title": "Контекстное меню",
+			"hint": "Контекстное меню",
+			"typeMenuItem": "Submenu",
+			"submenuItems": [
+				{
+					"name": "testFindByParamsSuccessMethodItem",
+					"title": "Тестовый метод FindByParams",
+					"typeMenuItem": "Method",
+					"object": "test_findbyparams"
+				},
+				{
+					"name": "testFindByParamsSortedMethodItem",
+					"title": "Тестовый метод FindByParams (С сортировкой по целочисленному полю)",
+					"typeMenuItem": "Method",
+					"object": "test_findbyparams_sorted"
+				},
+				{
+					"name": "testFindByParamsLimitMethodItem",
+					"title": "Тест функции FindByParams (С ограничением на вывод строк до 2х - LIMIT 2)",
+					"typeMenuItem": "Method",
+					"object": "test_findbyparams_limit"
+				}
+			]
+		},
+		{
+			"name": "contextMenu",
+			"title": "Контекстное меню",
+			"hint": "Контекстное меню",
+			"typeMenuItem": "Submenu",
+			"submenuItems": [
+				{
+					"name": "testSuccess",
+					"title": "Тестовый метод Success",
+					"typeMenuItem": "Method",
+					"object": "test_success"
+				}
+			]
+		}
+	],
+
+	"sequenses": [
+		{
+			"name": "dogovorNumbers",
+			"description": "Сквозваня нумерация договоров",
+			"pattern": "ДОГ%YYYY%%MM%%DD%_%NUMBER(000)%%username%%userfio%",
+			"externalUrl": ""
+		},
+		{
+			"name": "sfNumbers",
+			"description": "Сквозваня нумерация счетов фактур",
+			"pattern": "СФ%YY%%MM%%DD%_%NUMBER(00000)%",
+			"externalUrl": "http://10.10.10.64:5005/api/generateserial/{0}"
+		}
+	],
+
+	"types": [	
+//Тип даных для ENUM
+		{
+			"name": "sysenum_type",
+			"type": "SysENUM",
+			"displayName": "Поле SysEnum",
+			"enum": [
+				{
+					"id": 2,
+					"value": "AB"
+				},
+				{
+					"id": 1,
+					"value": "ab"
+				},
+				{
+					"id": 3,
+					"value": "YZ"
+				},
+				{
+					"id": 4,
+					"value": "yz"
+				},
+				{
+					"id": 5,
+					"value": "АБ"
+				},
+				{
+					"id": 6,
+					"value": "ЮЯ"
+				},
+				{
+					"id": 7,
+					"value": "аб"
+				},
+				{
+					"id": 8,
+					"value": "юя"
+				},
+				{
+					"id": 9,
+					"value": "1"
+				},
+				{
+					"id": 10,
+					"value": "10"
+				},
+				{
+					"id": 11,
+					"value": "100"
+				},
+				{
+					"id": 12,
+					"value": "0987654321"
+				},
+				{
+					"id": 13,
+					"value": "!@#$%*()_{}[];:',.<>/?!№;%:?*()_+=-"
+				}
+			]
+		},
+// Типы данных для таблицы relation_table
+		{
+			"name": "guidRelation",
+			"type": "SysRelation",
+			"displayName": "Тип SysGUID",
+			"isHighloaded": true,			
+			"relation": {
+				"table": "types_table",
+				"defaultNulledValueLabel": "Поле принимает значение null", // отображается в поле при значении null
+				"viewDefaultLabelForGroups": [ "AdministratorsGroup" ], // массив имен групп, для которых разрешено отображение defaultNulledValueLabel
+				"displayField": "sysguid_test",
+				"isLink": true
+			}
+		},
+		{
+			"name": "stringRelation",
+			"type": "SysRelation",
+			"displayName": "Тип String",
+			"isHighloaded": true,			
+			"relation": {
+				"table": "types_table",
+				"displayField": "sysstring_test",
+				"isLink": true,
+				"defaultNulledValueLabel": "Поле принимает значение null",
+				"viewDefaultLabelForGroups": [ "AdministratorsGroup" ]
+			}
+		},
+		{
+			"name": "booleanRelation",
+			"type": "SysRelation",
+			"displayName": "Тип Boolean",
+			"isHighloaded": true,			
+			"relation": {
+				"table": "types_table",
+				"displayField": "sysboolean_test",
+				"isLink": true,
+				"defaultNulledValueLabel": "Поле принимает значение null",
+				"viewDefaultLabelForGroups": [ "AdministratorsGroup" ]
+			}
+		},
+		{
+			"name": "timedateRelation",
+			"type": "SysRelation",
+			"displayName": "Тип TimeDate",
+			"isHighloaded": true,			
+			"relation": {
+				"table": "types_table",
+				"displayField": "systimedate_test",
+				"isLink": true,
+				"defaultNulledValueLabel": "Поле принимает значение null",
+				"viewDefaultLabelForGroups": [ "AdministratorsGroup" ]
+			}
+		},
+		{
+			"name": "dateRelation",
+			"type": "SysRelation",
+			"displayName": "Тип Date",
+			"isHighloaded": true,			
+			"relation": {
+				"table": "types_table",
+				"displayField": "sysdate_test",
+				"isLink": true,
+				"defaultNulledValueLabel": "Поле принимает значение null",
+				"viewDefaultLabelForGroups": [ "AdministratorsGroup" ]
+			}
+		},
+		{
+			"name": "timeRelation",
+			"type": "SysRelation",
+			"displayName": "Тип Time",
+			"isHighloaded": true,			
+			"relation": {
+				"table": "types_table",
+				"displayField": "systime_test",
+				"isLink": true,
+				"defaultNulledValueLabel": "Поле принимает значение null",
+				"viewDefaultLabelForGroups": [ "AdministratorsGroup" ]
+			}
+		},
+		{
+			"name": "numberRelation",
+			"type": "SysRelation",
+			"displayName": "Тип Number",
+			"isHighloaded": true,			
+			"relation": {
+				"table": "types_table",
+				"displayField": "sysnumber_test",
+				"isLink": true,
+				"defaultNulledValueLabel": "Поле принимает значение null",
+				"viewDefaultLabelForGroups": [ "AdministratorsGroup" ]					  
+			}
+		},
+		{
+			"name": "intRelation",
+			"type": "SysRelation",
+			"displayName": "Тип Int",
+			"isHighloaded": true,			
+			"relation": {
+				"table": "types_table",
+				"displayField": "sysint_test",
+				"isLink": true,
+				"defaultNulledValueLabel": "Поле принимает значение null",
+				"viewDefaultLabelForGroups": [ "AdministratorsGroup" ]					   
+			}
+		},
+		{
+			"name": "moneyRelation",
+			"type": "SysRelation",
+			"displayName": "Тип Money",
+			"isHighloaded": true,			
+			"relation": {
+				"table": "types_table",
+				"displayField": "sysmoney_test",
+				"isLink": true,
+				"defaultNulledValueLabel": "Поле принимает значение null",
+				"viewDefaultLabelForGroups": [ "AdministratorsGroup" ]
+			}
+		},
+		{
+			"name": "decimalRelation",
+			"type": "SysRelation",
+			"displayName": "Тип Decimal",
+			"isHighloaded": true,			
+			"relation": {
+				"table": "types_table",
+				"displayField": "sysdecimal_test",
+				"isLink": true,
+				"defaultNulledValueLabel": "Поле принимает значение null",
+				"viewDefaultLabelForGroups": [ "AdministratorsGroup" ]
+			}
+		},
+		{
+			"name": "ENUMRelation",
+			"type": "SysRelation",
+			"displayName": "Тип ENUM",
+			"isHighloaded": true,			
+			"relation": {
+				"table": "types_table",
+				"displayField": "sysenum_test",
+				"isLink": true,
+				"defaultNulledValueLabel": "Поле принимает значение null",
+				"viewDefaultLabelForGroups": [ "AdministratorsGroup" ]
+			}
+		},
+		{
+			"name": "relationRelation",
+			"type": "SysRelation",
+			"displayName": "Тип Relation",			
+			"relation": {
+				"table": "types_table",
+				"displayField": "edit_table_test",
+				"isLink": true,
+				"defaultNulledValueLabel": "Поле принимает значение null",
+				"viewDefaultLabelForGroups": [ "AdministratorsGroup" ]
+			}
+		},
+// Расширенные типы данных
+		{
+			"name": "test_calc_type",
+			"type": "SysString",
+			"displayName": "Вычисляемое поле",
+			"isCalculated": true,
+			"formula": "concat('calculated: ', test_string_field2)"
+		},
+		{
+			"name": "sysguid_type_add",
+			"type": "SysGUID",
+			"visible": true,
+			"defaultDb": "4b3de95b-d8b0-469d-b56d-df89f314bcfe"
+		},
+		{
+			"name": "sysstring_type_add",
+			"type": "SysString",
+			"visible": false,
+			"defaultDb": "Строковое значение 1!"
+		},
+		{
+			"name": "sysboolean_type_add",
+			"type": "SysBoolean",
+			"visible": "function() { return activeUserProfile.login == 'admin'; }",
+			"defaultDb": "true"
+		},
+		{
+			"name": "systimedate_type_add",
+			"type": "SysTimeDate",
+			"visible": "function() { return activeRecord.sysboolean_add == true; }",
+			"defaultDb": "2021-07-01T11:55:00Z"
+		},
+		{
+			"name": "sysdate_type_add",
+			"type": "SysDate",
+			"visible": "function() { return activeUser.username == 'Administrator'; }",
+			"defaultDb": "2021-07-01T00:00:00Z"
+		},
+		{
+			"name": "systime_type_add",
+			"type": "SysTime",
+			"visible": "function() { return activeUser.token == 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIxNDNiOTFmMi01NjM3LTQ5Y2EtYjIwNS1iYWJiMzJhZTgwNGYiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiQWRtaW5pc3RyYXRvciIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluaXN0cmF0b3JzR3JvdXAiLCJuYmYiOjE2NDU1MDgzNTEsImV4cCI6MTY0NjExMzE1MSwiaXNzIjoiUkRFViIsImF1ZCI6Ii8ifQ.oP5ixOTUMxkDpZFMcwnxKMg-Q5xQcIXsdZxlm_VnSG0'; }",
+			"defaultDb": "2021-10-27 01:30:00"
+		},
+		{
+			"name": "sysnumber_type_add",
+			"type": "SysNumber",
+			"visible": "function() { return activeUser.groups.indexOf('388f0b13-6ba6-4571-a32a-3ff8020885f8' ) != -1; }",
+			"defaultDb": "0"
+		},
+// Тип для построения таблицы в карточке
+		{
+			"name": "editTableRelation",
+			"type": "SysRelation",
+			"displayName": "Ссылающееся поле",
+			"relation": {
+				"table": "relatedtable_customgroups_table",
+				"displayField": "field1"
+			}
+		},
+// Системные типы данных выраженные через наследование
+		{
+			"name": "sysguid_type",
+			"type": "SysGUID",
+			"defaultDb": "4b3de95b-d8b0-469d-b56d-df89f314bcfe"
+		},
+		{
+			"name": "sysguid_type_new",
+			"type": "SysGUID",
+			"defaultDb": "new"
+		},	
+		{
+			"name": "sysstring_type",
+			"type": "SysString",
+			"defaultDb": "Строковое значение 1!"
+		},
+		{
+			"name": "sysblob_type",
+			"type": "SysBlob",
+			"defaultDb": "c2RhIGFmZCBkYWhnIGprYWRnc2dnZ2dnZ2dnZ2dzZGEgYWZkIGRhaGcgamthZGdzZ2dnZ2dnZ2dnZ3NkYSBhZmQgZGFoZyBqa2FkZ3NnZ2dnZ2dnZ2dnc2RhIGFmZCBkYWhnIGprYWRnc2dnZ2dnZ2dnZ2dzZGEgYWZkIGRhaGcgamthZGdzZ2dnZ2dnZ2dnZ3NkYSBhZmQgZGFoZyBqa2FkZ3NnZ2dnZ2dnZ2dnc2RhIGFmZCBkYWhnIGprYWRnc2dnZ2dnZ2dnZ2dzZGEgYWZkIGRhaGcgamthZGdzZ2dnZ2dnZ2dnZ3NkYSBhZmQgZGFoZyBqa2FkZ3NnZ2dnZ2dnZ2dnc2RhIGFmZCBkYWhnIGprYWRnc2dnZ2dnZ2dnZ2dzZGEgYWZkIGRhaGcgamthZGdzZ2dnZ2dnZ2dnZ3NkYSBhZmQgZGFoZyBqa2FkZ3NnZ2dnZ2dnZ2dnc2RhIGFmZCBkYWhnIGprYWRnc2dnZ2dnZ2dnZ2dzZGEgYWZkIGRhaGcgamthZGdzZ2dnZ2dnZ2dnZ3NkYSBhZmQgZGFoZyBqa2FkZ3NnZ2dnZ2dnZ2dnc2RhIGFmZCBkYWhnIGprYWRnc2dnZ2dnZ2dnZ2dzZGEgYWZkIGRhaGcgamthZGdzZ2dnZ2dnZ2dnZw=="
+		},
+		{
+			"name": "sysboolean_type",
+			"type": "SysBoolean",
+			"defaultDb": "true"
+		},
+		{
+			"name": "systimedate_type",
+			"type": "SysTimeDate",
+			"defaultDb": "2021-07-01T11:55:00Z"
+		},
+		{
+			"name": "systimedate_type_new",
+			"type": "SysTimeDate",
+			"defaultDb": "new"
+		},
+		{
+			"name": "sysdate_type",
+			"type": "SysDate",
+			"defaultDb": "2021-07-01T00:00:00Z"
+		},
+		{
+			"name": "sysdate_type_new",
+			"type": "SysDate",
+			"defaultDb": "new"
+		},
+		{
+			"name": "systime_type",
+			"type": "SysTime",
+			"defaultDb": "2021-10-27 01:30:00"
+		},
+		{
+			"name": "systime_type_new",
+			"type": "SysTime",
+			"defaultDb": "new"
+		},
+		{
+			"name": "sysnumber_type",
+			"type": "SysNumber",
+			"defaultDb": "0"
+		},
+		{
+			"name": "sysint_type",
+			"type": "SysInt",
+			"defaultDb": "0"
+		},
+		{
+			"name": "sysmoney_type",
+			"type": "SysMoney",
+			"defaultDb": "0"
+		},
+		{
+			"name": "sysdecimal_type",
+			"type": "SysDecimal",
+			"defaultDb": "0"
+		},
+		{
+			"name": "sysenum_type2",
+			"type": "SysENUM",
+			"displayName": "Поле SysEnum",
+			"enum": [
+				{
+					"id": 1,
+					"value": "AB"
+				},
+				{
+					"id": 2,
+					"value": "ab"
+				}
+			],
+			"defaultDb": "1"
+		},
+		{
+			"name": "sysfile_type",
+			"type": "SysFile",
+			"displayName": "Поле SysFile"
+		},
+		{
+			"name": "sysimage_type",
+			"type": "SysImage"
+		}
+	],
+
+	"tables": [
+
+// Все основные типы данных
+		{
+			"name": "types_table",
+			"displayName": "Основные типы данных",
+			"description": "Все основные типы данных. На эту таблицу ссылается таблица 'Ссылающиеся типы данных'",
+			"CustomizerViewFields": {
+				"AllowEdit": true
+			},
+			// "indexes": [
+			// 	{
+			// 		"name": "sysstring_test_index",
+			// 		"columns": [
+			// 			{
+			// 				"name": "sysstring_test"
+			// 			}						
+			// 		],
+			// 		"type": "btree",
+			// 		"isUnique": true 
+			// 	}
+			// ],		
+			"fields": [
+				{
+					"name": "sysguid_test",
+					"type": "SysGUID",
+					"displayName": "SysGuid",
+					"isImportKey": true
+				},
+				{
+					"name": "sysstring_test",
+					"type": "SysString",
+					"displayName": "SysString",
+					"isImportKey": true
+				},
+				{
+					"name": "sysboolean_test",
+					"type": "SysBoolean",
+					"displayName": "SysBoolean",
+					"isImportKey": true
+				},
+				{
+					"name": "systimedate_test",
+					"type": "SysTimeDate",
+					"displayName": "SysTimeDate",
+					"isImportKey": true
+				},
+				{
+					"name": "sysdate_test",
+					"type": "SysDate",
+					"displayName": "SysDate",
+					"isImportKey": true
+				},
+				{
+					"name": "systime_test",
+					"type": "SysTime",
+					"displayName": "SysTime",
+					"isImportKey": true
+				},
+				{
+					"name": "sysnumber_test",
+					"type": "SysNumber",
+					"displayName": "SysNumber",
+					"hasExtendedFilter": true,
+					"isImportKey": true
+				},
+				{
+					"name": "sysint_test",
+					"type": "SysInt",
+					"displayName": "SysInt",
+					"hasExtendedFilter": true,
+					"isImportKey": true
+				},
+				{
+					"name": "sysmoney_test",
+					"type": "SysMoney",
+					"displayName": "SysMoney",
+					"isImportKey": true
+				},
+				{
+					"name": "sysdecimal_test",
+					"type": "SysDecimal",
+					"displayName": "SysDecimal",
+					"isImportKey": true
+				},
+				{
+					"name": "sysenum_test",
+					"type": "sysenum_type",
+					"displayName": "SysEnum",
+					"isImportKey": true
+				},
+				{
+					"name": "sysimage_test",
+					"type": "SysImage",
+				 	"displayName": "SysFile",
+					"imageField": "sysfile_test",
+					"isImportKey": true
+				},
+				{
+					"name": "sysfile_test",
+					"type": "SysFile",
+					"displayName": "SysFile",
+					"isImportKey": true,
+					"hasSortingIndex":true
+				},
+				// Поле для построения таблицы в карточке
+				{
+					"name": "edit_table_test",
+					"type": "editTableRelation",
+					"displayName": "Ссылающееся поле"
+				}
+			],
+			"advancedSearch": {
+				"visible": true,
+				"searchFields": [
+					{
+						"name": "sysguid_test",
+						"tooltip": "Guid",
+						"label": "Guid"
+					},
+					{
+						"name": "sysstring_test",
+						"tooltip": "Строковое поле",
+						"label": "Строковое поле"
+					},
+					{
+						"name": "reccode",
+						"tooltip": "код",
+						"label": "Системное поле reccode с очень длинным названием для проверки отображения длинных названий в поисковом поле расширенного поиска"
+					},
+					{
+						"name": "recupdatedby",
+						"tooltip": "гуид",
+						"label": "Кем обновлено"
+					},
+					{
+						"name": "recupdated",
+						"tooltip": "дата",
+						"label": "Дата обновления записи"
+					},
+					{
+						"name": "sysboolean_test",
+						"tooltip": "Поле логического типа Поле логического типа Поле логического типа Поле логического типа Поле логического типа Поле логического типа"
+					},
+					{
+						"name": "systimedate_test",
+						"label": "Дата-Время Дата-Время Дата-Время Дата-Время"
+					},
+					{
+						"name": "sysdate_test"
+					},
+					{
+						"name": "systime_test"
+					},
+					{
+						"name": "sysnumber_test"
+					},
+					{
+						"name": "sysint_test"
+					},
+					{
+						"name": "sysmoney_test"
+					},
+					{
+						"name": "sysdecimal_test"
+					},
+					{
+						"name": "sysenum_test"
+					},
+					{
+						"name": "sysfile_test"
+					}
+				]
+			},
+"fieldGroups": {
+				"autoLookup": {
+					"displayName": "",
+					"fields": [
+						"sysstring_test",
+						"sysint_test"
+					]
+				}
+				// ,				
+				// "autoRelation": {
+				// 	"displayName": "Тест autoRelation",
+				// 	"fields": ["sysstring_test", "sysdecimal_relation"]
+				// }					
+			}
+		},
+
+// Основные типы данных, выраженные через наследование
+		{
+			"name": "types_var_table",
+			"displayName": "Основные типы данных (наследование)",
+			"description": "Системные типы данных задаются не напрямую, а через секцию types",		
+			"fields": [
+				{
+					"name": "sysguid_test",
+					"type": "sysguid_type",
+					"displayName": "SysGUID",
+					"isImportKey": true,
+					"default":"function() { return '57fdeb6b-1f57-401c-b06d-041aae8ba17c'; }"
+				},
+				{
+					"name": "sysstring_test",
+					"type": "sysstring_type",
+					"displayName": "SysString",
+					"isImportKey": true,
+					"default": "function() { return 'Автозаполнение'; }"
+				},
+				// {
+				// 	"name": "sysblob_test",
+				// 	"type": "sysblob_type",
+				// 	"displayName": "SysBlob",
+				// 	"isImportKey": true,
+				// 	"default": "function() { return 'QVNEaGlseTJxM3dleTI4N28gaHdsIGlvMjN5IGh1M29xIDJxdTMycXI'; }"
+				// },
+				{
+					"name": "sysboolean_test",
+					"type": "sysboolean_type",
+					"displayName": "SysBoolean",
+					"isImportKey": true,
+					"default": "function() { return false; }"
+				},
+				{
+					"name": "systimedate_test",
+					"type": "systimedate_type",
+					"displayName": "SysTimeDate",
+					"isImportKey": true,
+					"default": "function() { return '2020-07-01T11:55:00Z'; }"
+				},
+				{
+					"name": "sysdate_test",
+					"type": "sysdate_type",
+					"displayName": "SysDate",
+					"isImportKey": true,
+					"default": "function() { return '2020-08-01T00:00:00Z'; }"
+				},
+				{
+					"name": "systime_test",
+					"type": "systime_type",
+					"displayName": "SysTime",
+					"isImportKey": true,
+					"default": "function() { return '2020-12-31T21:00:00Z'; }"
+				},
+				{
+					"name": "sysnumber_test",
+					"type": "sysnumber_type",
+					"displayName": "SysNumber",
+					"isImportKey": true,
+					"default": "function() { return 1234567890; }"
+				},
+				{
+					"name": "sysint_test",
+					"type": "sysint_type",
+					"displayName": "SysInt",
+					"hasExtendedFilter": true,
+					"isImportKey": true,
+					"default": "function() { return -1234567890; }"
+				},
+				{
+					"name": "sysmoney_test",
+					"type": "sysmoney_type",
+					"displayName": "SysMoney",
+					"isImportKey": true,
+					"default": "function() { return 1234567890; }"
+				},
+				{
+					"name": "sysdecimal_test",
+					"type": "sysdecimal_type",
+					"displayName": "SysDecimal",
+					"isImportKey": true,
+					"default": "function() { return 1234567890; }"
+				},
+				{
+					"name": "sysenum_test",
+					"type": "sysenum_type2",
+					"displayName": "SysENUM",
+					"isImportKey": true,
+					"defaultEnum": 2
+				},
+				{
+					"name": "sysfile_test",
+					"type": "sysfile_type",
+					"displayName": "SysFile",
+					"isImportKey": true,
+					"hasSortingIndex":true
+				},
+				{
+					"name": "sysimage_test",
+					"type": "sysimage_type",
+				 	"displayName": "SysFile",
+					"imageField": "sysfile_test",
+					"isImportKey": true
+				}
+			]
+		},
+		{
+			"name": "types_var_table_2",
+			"displayName": "Основные типы данных (наследование доп)",
+			"description": "Дополнительные проверки свойства defaultDb",		
+			"fields": [
+				{
+					"name": "sysguid_test",
+					"type": "sysguid_type_new",
+					"displayName": "SysGUID",
+					"isImportKey": true,
+					"default":"function() { return '57fdeb6b-1f57-401c-b06d-041aae8ba17c'; }"
+				},
+				{
+					"name": "systimedate_test",
+					"type": "systimedate_type_new",
+					"displayName": "SysTimeDate",
+					"isImportKey": true,
+					"default": "function() { return '2021-08-01T11:55:00Z'; }"
+				},
+				{
+					"name": "sysdate_test",
+					"type": "sysdate_type_new",
+					"displayName": "SysDate",
+					"isImportKey": true,
+					"default": "function() { return '2021-08-01T00:00:00Z'; }"
+				},
+				{
+					"name": "systime_test",
+					"type": "systime_type_new",
+					"displayName": "SysTime",
+					"isImportKey": true,
+					"default": "function() { return '2021-12-31T21:00:00Z'; }"
+				}
+			]
+		},
+
+// Все ссылающиеся типы данных
+		{
+			"name": "relation_table",
+			"displayName": "Ссылающиеся типы данных",
+			"description": "В данной таблице описаны поля, ссылаюшиеся на поля разного типа из таблицы Основыне типы данных",
+			"fields": [
+				{
+					"name": "sysstring_test",
+					"type": "SysString",
+					"displayName": "Поле без связей"
+				},
+				{
+					"name": "sysenum_test_1",
+					"type": "sysenum_type",
+					"displayName": "SysEnum default 0",
+					"defaultEnum": 0,
+					"isImportKey": true
+				},
+				{
+					"name": "sysenum_test_2",
+					"type": "sysenum_type",
+					"displayName": "SysEnum",
+					"isImportKey": true
+				},
+				{
+					"name": "sysenum_test_3",
+					"type": "sysenum_type",
+					"displayName": "SysEnum default 1",
+					"defaultEnum": 9,
+					"isImportKey": true
+				},
+				{
+					"name": "sysguid_relation",
+					"type": "guidRelation",
+					"isImportKey": true,
+					"displayName": "Ссылка на Guid"
+				},
+				{
+					"name": "sysstring_relation",
+					"type": "stringRelation",
+					"isImportKey": true,
+					"displayName": "Ссылка на String"
+				},
+				{
+					"name": "sysboolean_relation",
+					"type": "booleanRelation",
+					"isImportKey": true,
+					"displayName": "Ссылка на Boolean",
+					"isLink": true
+				},
+				{
+					"name": "systimedate_relation",
+					"type": "timedateRelation",
+					"isImportKey": true,					
+					"displayName": "Ссылка на TimeDate",
+					"isLink": true
+				},
+				{
+					"name": "sysdate_relation",
+					"type": "dateRelation",
+					"isImportKey": true,
+					"displayName": "Ссылка на Date",
+					"isLink": true
+				},
+				{
+					"name": "systime_relation",
+					"type": "timeRelation",
+					"isImportKey": true,
+					"displayName": "Ссылка на Time",
+					"isLink": true
+				},
+				{
+					"name": "sysnumber_relation",
+					"type": "numberRelation",
+					"isImportKey": true,
+					"displayName": "Ссылка на Number",
+					"isLink": true
+				},
+				{
+					"name": "sysint_relation",
+					"type": "intRelation",
+					"isImportKey": true,
+					"displayName": "Ссылка на Int",
+					"isLink": true
+				},
+				{
+					"name": "sysmoney_relation",
+					"type": "moneyRelation",
+					"isImportKey": true,
+					"displayName": "Ссылка на Money",
+					"isLink": true
+				},
+				{
+					"name": "sysdecimal_relation",
+					"type": "decimalRelation",
+					"isImportKey": true,
+					"displayName": "Ссылка на Decimal",
+					"isLink": true
+				},
+				{
+					"name": "sysenum_relation",
+					"type": "ENUMRelation",
+					"isImportKey": true,
+					"displayName": "Ссылка на ENUM",
+					"isLink": true
+				},
+				{
+					"name": "sysrelation_relation",
+					"type": "relationRelation",
+					"isImportKey": true,
+					"displayName": "Ссылка на Relation",
+					"isLink": true
+				},
+				{
+					"name": "sysfile",
+					"type": "SysFile",
+					"isImportKey": true,
+					"displayName": "Файл"
+				}
+			],
+			// "fieldGroups": {
+			// 	"autoRelation": {
+			// 		"displayName": "Тест autoRelation",
+			// 		"fields": ["sysstring_test", "sysdecimal_relation"]
+			// 	}
+			// },
+			"advancedSearch": {
+				"visible": true,
+				"searchFields": [
+					{
+						"name": "sysstring_test",
+						"tooltip": "Ссылка на строковое поле",
+						"label": "Ссылка на строковое поле"
+					},
+					{
+						"name": "sysenum_test_1"
+					},
+					{
+						"name": "sysenum_test_2"
+					},
+					{
+						"name": "sysenum_test_3"
+					},
+					{
+						"name": "sysguid_relation"
+					},
+					{
+						"name": "sysstring_relation"
+					},
+					{
+						"name": "sysboolean_relation"
+					},
+					{
+						"name": "systimedate_relation"
+					},
+					{
+						"name": "sysdate_relation"
+					},
+					{
+						"name": "systime_relation"
+					},
+					{
+						"name": "sysnumber_relation"
+					},
+					{
+						"name": "sysint_relation"
+					},
+					{
+						"name": "sysmoney_relation"
+					},
+					{
+						"name": "sysdecimal_relation"
+					},
+					{
+						"name": "sysenum_relation"
+					}
+				]
+			}
+		},	
+
+// Расширенные типы данных
+	// Свойства 'readOnly', 'isCalculated', 'default'
+		{
+			"name": "test_readonly_fields_table",
+			"displayName": "Таблица для проверки свойств Default, ReadOnly и isCalculated",
+			"isEnabled": "function () { return true; }",
+			"fields": [
+				{
+					"name": "test_sysguid_field1",
+					"type": "SysGUID",
+					"displayName": "ГУИД поле (readOnly не указан)",
+					"isImportKey": true,
+					"default": "function() { return '66176f19-2d4d-4b53-a7d5-d66e06a1e43c'; }"
+				},
+				{
+					"name": "test_string_field1",
+					"type": "SysString",
+					"displayName": "Текстовое поле пустое (readOnly не указан)",
+					"isImportKey": true
+				},
+				{
+					"name": "test_string_field2",
+					"type": "SysString",
+					"displayName": "Текстовое поле (readOnly - false)",
+					"readOnly": false,
+					"default": "function() { return 'Автозаполнение'; }",
+					"isImportKey": true
+				},
+				{
+					"name": "test_string_field3",
+					"type": "test_calc_type",
+					"displayName": "Текстовое поле (readOnly)",
+					"readOnly": true,
+					"isImportKey": true
+				},
+				{
+					"name": "test_bool_field1",
+					"type": "SysBoolean",
+					"displayName": "Логическое поле (readOnly)",
+					"readOnly": true,
+					"default": "function() { return false; }",
+					"isImportKey": true
+				},
+				{
+					"name": "test_timedate_field1",
+					"type": "SysTimeDate",
+					"displayName": "Поле дата-время (readOnly)",
+					"readOnly": "true",
+					"default": "function() { return '2021-07-01T11:55:00Z'; }",
+					"isImportKey": true
+				},
+				{
+					"name": "sysdate_field1",
+					"type": "SysDate",
+					"displayName": "SysDate",
+					"default": "function() { return '2021-07-01T00:00:00Z'; }",
+					"isImportKey": true,
+					"readOnly": true
+				},
+				{
+					"name": "systime_field1",
+					"type": "SysTime",
+					"displayName": "SysTime",
+					"default": "function() { return '2021-12-31T21:00:00Z'; }",
+					"isImportKey": true,
+					"readOnly": true
+				},
+				{
+					"name": "sysnumber_field1",
+					"type": "SysNumber",
+					"displayName": "SysNumber",
+					"default": "function() { return 2147483647; }",
+					"isImportKey": true,
+					"readOnly": true
+				},
+				{
+					"name": "sysint_field1",
+					"type": "SysInt",
+					"displayName": "SysInt",
+					"default": "function() { return 2147483647; }",
+					"isImportKey": true,
+					"readOnly": true
+				},
+				{
+					"name": "sysmoney_field1",
+					"type": "SysMoney",
+					"displayName": "SysMoney",
+					"default": "function() { return -123456789,123; }",
+					"isImportKey": true,
+					"readOnly": true
+				},
+				{
+					"name": "sysdecimal_field1",
+					"type": "SysDecimal",
+					"displayName": "SysDecimal field 1",
+					"default": "function() { return -123456789,123; }",
+					"isImportKey": true,
+					"readOnly": true
+				},
+				{
+					"name": "sysenum_field1",
+					"type": "sysenum_type",
+					"displayName": "SysENUM",
+					"default": "function() { return 3; }",
+					"isImportKey": true,
+					"readOnly": true
+				},
+				{
+					"name": "test_fias_field1",
+					"type": "SysFias",
+					"displayName": "ФИАС поле (readOnly)",
+					"readOnly": true,
+					"isImportKey": true
+				},
+				{
+					"name": "sysfile_test",
+					"type": "SysFile",
+					"displayName": "Поле для файла",
+					"readOnly": "true",
+					"isImportKey": true
+				}
+			],
+			"advancedSearch": {
+				"visible": true,
+				"searchFields": [
+					{
+						"name": "test_string_field1"
+					},
+					{
+						"name": "test_string_field2"
+					},
+					{
+						"name": "test_string_field3"
+					},
+					{
+						"name": "test_bool_field1"
+					},
+					{
+						"name": "test_timedate_field1"
+					},
+					{
+						"name": "sysdate_field1"
+					},
+					{
+						"name": "systime_field1"
+					},
+					{
+						"name": "sysnumber_field1"
+					},
+					{
+						"name": "sysint_field1"
+					},
+					{
+						"name": "sysmoney_field1"
+					},
+					{
+						"name": "sysdecimal_field1"
+					},
+					{
+						"name": "sysenum_field1"
+					},
+					{
+						"name": "test_fias_field1"
+					},
+					{
+						"name": "sysfile_test"
+					}
+				]
+			}
+		},
+	// validationRules
+		{
+			"name": "test_validation_table",
+			"displayName": "Проверка валидации полей",
+			"description": "В данной таблице проверяется валидация полей разных типов",
+			"fields": [
+				{
+					"name": "sysstring_field1",
+					"type": "SysString",
+					"displayName": "Test field 1",
+					"isImportKey": true,
+					"validationRules": [
+						{
+							"type": "required",
+							"message": "Поле должно быть заполнено"
+						},
+						{
+							"type": "stringLength",
+							"min": 2,
+							"max": 8,
+							"message": "Длина строки должна быть не меньше 2 символов и не более 8"
+						}
+					]
+				},
+				{
+					"name": "sysint_field1",
+					"type": "SysInt",
+					"displayName": "Test int 1",
+					"isImportKey": true,
+					"validationRules": [
+						{
+							"type": "required",
+							"message": "Поле должно быть заполнено"
+						},
+						{
+							"type": "numberRange",
+							"min": 2,
+							"max": 8,
+							"message": "Число должно быть не меньше 2 и не более 8"
+						}
+					]
+				},
+				{
+					"name": "sysint_field2",
+					"type": "SysInt",
+					"displayName": "Test int 2",
+					"isImportKey": true,
+					"validationRules": [
+						{
+							"type": "positive",
+							"message": "Число должно быть положительным"
+						},
+						{
+							"type": "integer",
+							"message": "Число должно быть целым"
+						}
+					]
+				},
+				{
+					"name": "sysint_field3",
+					"type": "SysInt",
+					"displayName": "Test int 3",
+					"isImportKey": true,
+					"validationRules": [
+						{
+							"type": "negative",
+							"message": "Число должно быть отрицательным"
+						},
+						{
+							"type": "integer",
+							"message": "Число должно быть целым"
+						}
+					]
+				},
+				{
+					"name": "sysdate_field2",
+					"type": "SysTimeDate",
+					"displayName": "Test timeDate 1",
+					"isImportKey": true,
+					"validationRules": [
+						{
+							"type": "required",
+							"message": "Поле должно быть заполнено"
+						},
+						{
+							"type": "dateRange",
+							"minDate": "2019-06-05T00:00:00.000Z",
+							"maxDate": "2019-09-01T12:25:00.000Z",
+							"message": "Дата должна быть не ранее 5 июня 2019г. и не позднее 12:25 1 сентября 2019г."
+						}
+					]
+				}
+			],
+			"advancedSearch": {
+				"visible": true,
+				"searchFields": [
+					{
+						"name": "sysstring_field1"
+					},
+					{
+						"name": "sysint_field1"
+					},
+					{
+						"name": "sysint_field2"
+					},
+					{
+						"name": "sysint_field3"
+					},
+					{
+						"name": "sysdate_field2"
+					}
+				]
+			}
+		},
+	// displaySize
+		{
+			"name": "test_displaysize_fields_table",
+			"displayName": "Проверка действия свойства displaySize",
+			"description": "В данной таблице проверяется работоспособность свойства displaySize для полей различных типов",
+			"fields": [
+				{
+					"name": "field1",
+					"type": "stringRelation",
+					"displayName": "size 75",
+					"isImportKey": true,
+					"displaySize": 75
+				},
+				{
+					"name": "field2",
+					"type": "decimalRelation",
+					"displayName": "size 200",
+					"isImportKey": true,
+					"displaySize": 200
+				},
+				{
+					"name": "field4",
+					"type": "SysString",
+					"displayName": "size 350",
+					"isImportKey": true,
+					"displaySize": 350
+				},
+				{
+					"name": "field5",
+					"type": "SysString",
+					"isImportKey": true,
+					"displayName": "size default"
+				},
+				{
+					"name": "field6",
+					"type": "decimalRelation",
+					"displayName": "size 200",
+					"isImportKey": true,
+					"displaySize": 200
+				},
+				{
+					"name": "field7",
+					"type": "SysString",
+					"displayName": "size 350",
+					"isImportKey": true,
+					"displaySize": 350
+				},
+				{
+					"name": "field8",
+					"type": "SysString",
+					"isImportKey": true,
+					"displayName": "size default"
+				},
+				{
+					"name": "field9",
+					"type": "decimalRelation",
+					"displayName": "size 200",
+					"isImportKey": true,
+					"displaySize": 200
+				},
+				{
+					"name": "field10",
+					"type": "SysString",
+					"displayName": "size 350",
+					"isImportKey": true,
+					"displaySize": 350
+				},
+				{
+					"name": "field11",
+					"type": "SysString",
+					"isImportKey": true,
+					"displayName": "size default"
+				}
+			],
+			// "CustomizerViewFields": {
+			// 	"AllowEdit": true
+			// },
+			"advancedSearch": {
+				"visible": true,
+				"searchFields": [
+					{
+						"name": "field1"
+					},
+					{
+						"name": "field2"
+					},
+					{
+						"name": "field4"
+					},
+					{
+						"name": "field5"
+					}
+				]
+			}
+		},
+	// sequence
+		{
+			"name": "test_sequence",
+			"displayName": "Тест полей с автонумерацией",
+			"description": "В данной таблице описаны 3 поля типа SysString",
+			"fields": [
+				{
+					"name": "sysstring_field1",
+					"type": "SysString",
+					"displayName": "Без автонумерации",
+					"isImportKey": true
+				},
+				{
+					"name": "sysstring_field2",
+					"type": "SysString",
+					"displayName": "Автонумерация 1",
+					"sequence": "dogovorNumbers",
+					"isImportKey": true,
+					"readOnly": true
+				},
+				{
+					"name": "sysstring_field3",
+					"type": "SysString",
+					"displayName": "Автонумерация 2",
+					"sequence": "sfNumbers",
+					"isImportKey": true,
+					"readOnly": true
+				}
+			],
+			"advancedSearch": {
+				"visible": true,
+				"searchFields": [
+					{
+						"name": "sysstring_field1"
+					},
+					{
+						"name": "sysstring_field2"
+					},
+					{
+						"name": "sysstring_field3"
+					}
+				]
+			}
+		},
+	// hasSortingIndex
+		{
+			"name": "hassortindex_table",
+			"displayName": "Таблица с добавленными индексами",
+			"description": "В таблице вручную добавлены индексы для основных типов данных",
+			"fields": [
+				{
+					"name": "sysstring_test",
+					"type": "SysString",
+					"displayName": "SysString",
+					"isImportKey": true,
+					"hasSortingIndex": true
+				},
+				{
+					"name": "sysboolean_test",
+					"type": "SysBoolean",
+					"displayName": "SysBoolean",
+					"isImportKey": true,
+					"hasSortingIndex": true
+				},
+				{
+					"name": "systimedate_test",
+					"type": "SysTimeDate",
+					"displayName": "SysTimeDate",
+					"isImportKey": true,
+					"hasSortingIndex": true
+				},
+				{
+					"name": "sysdate_test",
+					"type": "SysDate",
+					"displayName": "SysDate",
+					"isImportKey": true,
+					"hasSortingIndex": true
+				},
+				{
+					"name": "systime_test",
+					"type": "SysTime",
+					"displayName": "SysTime",
+					"isImportKey": true,
+					"hasSortingIndex": true
+				},
+				{
+					"name": "sysnumber_test",
+					"type": "SysNumber",
+					"displayName": "SysNumber",
+					"isImportKey": true,
+					"hasSortingIndex": true
+				},
+				{
+					"name": "sysint_test",
+					"type": "SysInt",
+					"displayName": "SysInt",
+					"isImportKey": true,
+					"hasSortingIndex": true
+				},
+				{
+					"name": "sysmoney_test",
+					"type": "SysMoney",
+					"displayName": "SysMoney",
+					"isImportKey": true,
+					"hasSortingIndex": true
+				},
+				{
+					"name": "sysdecimal_test",
+					"type": "SysDecimal",
+					"displayName": "SysDecimal",
+					"isImportKey": true,
+					"hasSortingIndex": true
+				},
+				{
+					"name": "sysenum_test",
+					"type": "sysenum_type",
+					"displayName": "SysEnum",
+					"isImportKey": true,
+					"hasSortingIndex": true
+				},
+				{
+					"name": "sysimage_test",
+					"type": "SysImage",
+					"displayName": "SysFile",
+					"imageField": "sysfile_test",
+					"isImportKey": true,
+					"hasSortingIndex": true
+				},
+				{
+					"name": "sysfile_test",
+					"type": "SysFile",
+					"displayName": "SysFile",
+					"isImportKey": true,
+					"hasSortingIndex": true
+				}
+			],
+			"advancedSearch": {
+				"visible": true,
+				"searchFields": [
+					{
+						"name": "sysstring_test",
+						"type": "SysString",
+						"displayName": "SysString",
+						"isImportKey": true,
+						"hasSortingIndex": true
+					},
+					{
+						"name": "sysnumber_test",
+						"type": "SysNumber",
+						"displayName": "SysNumber",
+						"isImportKey": true,
+						"hasSortingIndex": true
+					}
+				]
+			}
+		},
+	// filesSorting
+		{
+			"name": "filessorting_table",
+			"displayName": "Таблица с добавленными индексами",
+			"description": "В таблице вручную добавлены индексы для основных типов данных",
+			"fields": [
+				{
+					"name": "sysfile_test_1",
+					"type": "SysFile",
+					"displayName": "reccreated ASC",
+					"isImportKey": true,
+					"filesSorting": 
+						{
+							"fieldName": "reccreated",
+							"direction": "ASC"
+						}
+				},
+				{
+					"name": "sysfile_test_2",
+					"type": "SysFile",
+					"displayName": "reccreated DESC",
+					"isImportKey": true,
+					"filesSorting": 
+						{
+							"fieldName": "reccreated",
+							"direction": "DESC"
+						}
+				},
+				{
+					"name": "sysfile_test_3",
+					"type": "SysFile",
+					"displayName": "recupdated ASC",
+					"isImportKey": true,
+					"filesSorting": 
+						{
+							"fieldName": "recupdated",
+							"direction": "ASC"
+						}
+				},
+				{
+					"name": "sysfile_test_4",
+					"type": "SysFile",
+					"displayName": "recupdated DESC",
+					"isImportKey": true,
+					"filesSorting": 
+						{
+							"fieldName": "recupdated",
+							"direction": "DESC"
+						}
+				},
+				{
+					"name": "sysfile_test_5",
+					"type": "SysFile",
+					"displayName": "size ASC",
+					"isImportKey": true,
+					"filesSorting": 
+						{
+							"fieldName": "size",
+							"direction": "ASC"
+						}
+				},
+				{
+					"name": "sysfile_test_6",
+					"type": "SysFile",
+					"displayName": "size DESC",
+					"isImportKey": true,
+					"filesSorting": 
+						{
+							"fieldName": "size",
+							"direction": "DESC"
+						}
+				},
+				{
+					"name": "sysfile_test_7",
+					"type": "SysFile",
+					"displayName": "isverify ASC",
+					"isImportKey": true,
+					"filesSorting": 
+						{
+							"fieldName": "isverify",
+							"direction": "ASC"
+						}
+				},
+				{
+					"name": "sysfile_test_8",
+					"type": "SysFile",
+					"displayName": "isverify DESC",
+					"isImportKey": true,
+					"filesSorting": 
+						{
+							"fieldName": "isverify",
+							"direction": "DESC"
+						}
+				}
+			],
+			"advancedSearch": {
+				"visible": true,
+				"searchFields": [
+					{
+						"name": "sysfile_test_1"
+					},
+					{
+						"name": "sysfile_test_2"
+					},
+					{
+						"name": "sysfile_test_3"
+					},
+					{
+						"name": "sysfile_test_4"
+					},
+					{
+						"name": "sysfile_test_5"
+					},
+					{
+						"name": "sysfile_test_6"
+					},
+					{
+						"name": "sysfile_test_7"
+					},
+					{
+						"name": "sysfile_test_8"
+					}
+				]
+			}
+		},
+	// allowSorting
+		{
+			"name": "allowsorting_table",
+			"displayName": "Таблица с отключенной сортировкой",
+			"description": "В таблице отключена сортировка для полей всех типов",
+			"fields": [
+				{
+					"name": "sysstring_test",
+					"type": "SysString",
+					"displayName": "SysString",
+					"isImportKey": true,
+					"allowSorting": false
+				},
+				{
+					"name": "sysboolean_test",
+					"type": "SysBoolean",
+					"displayName": "SysBoolean",
+					"isImportKey": true,
+					"allowSorting": false
+				},
+				{
+					"name": "systimedate_test",
+					"type": "SysTimeDate",
+					"displayName": "SysTimeDate",
+					"isImportKey": true,
+					"allowSorting": false
+				},
+				{
+					"name": "sysdate_test",
+					"type": "SysDate",
+					"displayName": "SysDate",
+					"isImportKey": true,
+					"allowSorting": false
+				},
+				{
+					"name": "systime_test",
+					"type": "SysTime",
+					"displayName": "SysTime",
+					"isImportKey": true,
+					"allowSorting": false
+				},
+				{
+					"name": "sysnumber_test",
+					"type": "SysNumber",
+					"displayName": "SysNumber",
+					"isImportKey": true,
+					"allowSorting": false
+				},
+				{
+					"name": "sysint_test",
+					"type": "SysInt",
+					"displayName": "SysInt",
+					"isImportKey": true,
+					"allowSorting": false
+				},
+				{
+					"name": "sysmoney_test",
+					"type": "SysMoney",
+					"displayName": "SysMoney",
+					"isImportKey": true,
+					"allowSorting": false
+				},
+				{
+					"name": "sysdecimal_test",
+					"type": "SysDecimal",
+					"displayName": "SysDecimal",
+					"isImportKey": true,
+					"allowSorting": false
+				},
+				{
+					"name": "sysenum_test",
+					"type": "sysenum_type",
+					"displayName": "SysEnum",
+					"isImportKey": true,
+					"allowSorting": false
+				},
+				{
+					"name": "sysimage_test",
+					"type": "SysImage",
+					"displayName": "SysFile",
+					"imageField": "sysfile_test",
+					"isImportKey": true,
+					"allowSorting": false
+				},
+				{
+					"name": "sysfile_test",
+					"type": "SysFile",
+					"displayName": "SysFile",
+					"isImportKey": true,
+					"allowSorting": false
+				},
+				{
+					"name": "sysstring_relation",
+					"type": "stringRelation",
+					"isImportKey": true,
+					"isLink": true,
+					"displayName": "Ссылка на String 1",
+					"allowSorting": false
+				}
+			],
+			"advancedSearch": {
+				"visible": true,
+				"searchFields": [
+					{
+						"name": "sysstring_test"
+					},
+					{
+						"name": "sysboolean_test"
+					},
+					{
+						"name": "systimedate_test"
+					},
+					{
+						"name": "sysdate_test"
+					},
+					{
+						"name": "systime_test"
+					},
+					{
+						"name": "sysnumber_test"
+					},
+					{
+						"name": "sysint_test"
+					},
+					{
+						"name": "sysmoney_test"
+					},
+					{
+						"name": "sysdecimal_test"
+					},
+					{
+						"name": "sysenum_test"
+					},
+					{
+						"name": "sysimage_test"
+					},
+					{
+						"name": "sysfile_test"
+					},
+					{
+						"name": "sysstring_relation"
+					}
+				]
+			}
+		},
+	// hasExtendedFilter
+		{
+			"name": "hasextendedfilter_table",
+			"displayName": "Таблица с поиском нескольких значений одновременно",
+			"description": "В таблице включен поиск по нескольким значениям для полей SysInt и SysNumber",
+			"fields": [
+				{
+					"name": "sysnumber_test",
+					"type": "SysNumber",
+					"displayName": "SysNumber",
+					"isImportKey": true,
+					"hasExtendedFilter": true
+				},
+				{
+					"name": "sysint_test",
+					"type": "SysInt",
+					"displayName": "SysInt",
+					"isImportKey": true,
+					"hasExtendedFilter": true
+				}
+			],
+			"advancedSearch": {
+				"visible": true,
+				"searchFields": [
+					{
+						"name": "sysnumber_test"
+					},
+					{
+						"name": "sysint_test"
+					}
+				]
+			}
+		},
+	// isImportKey - false
+		{
+			"name": "isimportkey_table",
+			"displayName": "Основные типы данных",
+			"description": "Все основные типы данных. На эту таблицу ссылается таблица 'Ссылающиеся типы данных'",
+			"fields": [
+				{
+					"name": "sysstring_test",
+					"type": "SysString",
+					"displayName": "SysString",
+					"isImportKey": false				
+				},
+				{
+					"name": "sysboolean_test",
+					"type": "SysBoolean",
+					"displayName": "SysBoolean",
+					"isImportKey": false
+				},
+				{
+					"name": "systimedate_test",
+					"type": "SysTimeDate",
+					"displayName": "SysTimeDate",
+					"isImportKey": false
+				},
+				{
+					"name": "sysdate_test",
+					"type": "SysDate",
+					"displayName": "SysDate",
+					"isImportKey": false
+				},
+				{
+					"name": "systime_test",
+					"type": "SysTime",
+					"displayName": "SysTime",
+					"isImportKey": false
+				},
+				{
+					"name": "sysnumber_test",
+					"type": "SysNumber",
+					"displayName": "SysNumber",
+					"isImportKey": false
+				},
+				{
+					"name": "sysint_test",
+					"type": "SysInt",
+					"displayName": "SysInt",
+					"isImportKey": false
+				},
+				{
+					"name": "sysmoney_test",
+					"type": "SysMoney",
+					"displayName": "SysMoney",
+					"isImportKey": false
+				},
+				{
+					"name": "sysdecimal_test",
+					"type": "SysDecimal",
+					"displayName": "SysDecimal",
+					"isImportKey": false
+				},
+				{
+					"name": "sysenum_test",
+					"type": "sysenum_type",
+					"displayName": "SysEnum",
+					"isImportKey": false
+				},
+				{
+					"name": "sysimage_test",
+					"type": "SysImage",
+					"displayName": "SysFile",
+					"imageField": "sysfile_test",
+					"isImportKey": false
+				},
+				{
+					"name": "sysfile_test",
+					"type": "SysFile",
+					"displayName": "SysFile",
+					"isImportKey": false
+				}
+			]
+		},
+	// visible
+		{
+			"name": "visible_table",
+			"displayName": "Основные типы данных",
+			"description": "Все основные типы данных. На эту таблицу ссылается таблица 'Ссылающиеся типы данных'",
+			"fields": [
+				{
+					"name": "sysguid_test",
+					"type": "SysGUID",
+					"displayName": "без свойства visible",
+					"isImportKey": true
+				},
+				{
+					"name": "sysstring_test",
+					"type": "SysString",
+					"displayName": "false",
+					"visible": false,
+					"isImportKey": true				
+				},
+				{
+					"name": "sysboolean_test",
+					"type": "SysBoolean",
+					"displayName": "true",
+					"visible": true,					
+					"isImportKey": true
+				},
+				{
+					"name": "systimedate_test",
+					"type": "SysTimeDate",
+					"visible": "function() { return activeRecord.sysboolean_test == true; }",
+					"displayName": "sysboolean = true",
+					"isImportKey": true
+				},
+				{
+					"name": "sysdate_test",
+					"type": "SysDate",
+					"visible": "function() { return activeUserProfile.login == 'admin'; }",
+					"displayName": "login = admin",
+					"isImportKey": true
+				},
+				{
+					"name": "systime_test",
+					"type": "SysTime",
+					"displayName": "username = Administrator",
+					"visible": "function() { return activeUser.username == 'Administrator'; }",
+					"isImportKey": true
+				},
+				{
+					"name": "sysnumber_test",
+					"type": "SysNumber",					
+					"displayName": "admin token",
+					"visible": "function() { return activeUser.token == 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIxNDNiOTFmMi01NjM3LTQ5Y2EtYjIwNS1iYWJiMzJhZTgwNGYiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiQWRtaW5pc3RyYXRvciIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluaXN0cmF0b3JzR3JvdXAiLCJuYmYiOjE2NDU1MDgzNTEsImV4cCI6MTY0NjExMzE1MSwiaXNzIjoiUkRFViIsImF1ZCI6Ii8ifQ.oP5ixOTUMxkDpZFMcwnxKMg-Q5xQcIXsdZxlm_VnSG0'; }",
+					"isImportKey": true
+				},
+				{
+					"name": "sysint_test",
+					"type": "SysInt",
+					"visible": "function() { return activeUser.groups.indexOf('388f0b13-6ba6-4571-a32a-3ff8020885f8' ) != -1; }",
+					"displayName": "groups = AdministratorsGroup",
+					"isImportKey": true
+				},
+				{
+					"name": "sysguid_add",
+					"type": "sysguid_type_add",
+					"displayName": "add true",
+					"isImportKey": true
+				},
+				{
+					"name": "sysstring_add",
+					"type": "sysstring_type_add",
+					"displayName": "add false",
+					"isImportKey": true
+				},
+				{
+					"name": "sysboolean_add",
+					"type": "sysboolean_type_add",
+					"displayName": "add login = admin",
+					"isImportKey": true
+				},
+				{
+					"name": "systimedate_add",
+					"type": "systimedate_type_add",
+					"displayName": "add boolean = true",
+					"isImportKey": true
+				},
+				{
+					"name": "sysdate_add",
+					"type": "sysdate_type_add",
+					"displayName": "add username = Administrator",
+					"isImportKey": true
+				},
+				{
+					"name": "systime_add",
+					"type": "systime_type_add",
+					"displayName": "add admin token",
+					"isImportKey": true
+				},
+				{
+					"name": "sysnumber_add",
+					"type": "sysnumber_type_add",
+					"displayName": "add admin token",
+					"isImportKey": true
+				}
+			],
+			"menus": [
+				"contextMenu"
+			],
+			"methods": [
+				{
+					"name": "test_success",
+					"displayName": "Успех",
+					"fields": []
+				}
+			]
+		},
+		
+
+// Свойства таблиц
+	// Свойства 'name', 'displayName' и 'description'
+		{
+			"name": "test_name_displayname_description_table",
+			"displayName": "Отображаетеся текст прописанный в 'displayName'",
+			"description": "В данной таблице проверяются свойства 'Name', 'DisplayName' и 'Description' (текст прописан в 'Description')",			
+			"fields": [
+				{
+					"name": "test_string_field",
+					"type": "SysString",
+					"displayName": "Текстовое поле"
+				},
+				{
+					"name": "test_int_field",
+					"type": "SysInt",
+					"displayName": "Числовое поле"
+				}
+			]
+		},
+	// Cвойство 'tableView'
+		{
+			"name": "tableview_table",
+			"displayName": "Свойство tableView",
+			"description": "Таблица для проверки свойства tableView",
+			"fields": [
+				{
+					"name": "sysstring_test",
+					"type": "SysString",
+					"displayName": "SysString",
+					"isImportKey": true
+				},
+				{
+					"name": "sysboolean_test",
+					"type": "SysBoolean",
+					"displayName": "SysBoolean",
+					"isImportKey": true
+				},
+				{
+					"name": "systimedate_test",
+					"type": "SysTimeDate",
+					"displayName": "SysTimeDate",
+					"isImportKey": true
+				},
+				{
+					"name": "sysdate_test",
+					"type": "SysDate",
+					"displayName": "SysDate",
+					"isImportKey": true
+				},
+				{
+					"name": "systime_test",
+					"type": "SysTime",
+					"displayName": "SysTime",
+					"isImportKey": true
+				},
+				{
+					"name": "sysnumber_test",
+					"type": "SysNumber",
+					"displayName": "SysNumber",
+					"isImportKey": true
+				},
+				{
+					"name": "sysint_test",
+					"type": "SysInt",
+					"displayName": "SysInt",
+					"isImportKey": true
+				},
+				{
+					"name": "sysmoney_test",
+					"type": "SysMoney",
+					"displayName": "SysMoney",
+					"isImportKey": true
+				},
+				{
+					"name": "sysdecimal_test",
+					"type": "SysDecimal",
+					"displayName": "SysDecimal",
+					"isImportKey": true
+				},
+				{
+					"name": "sysenum_test",
+					"type": "sysenum_type",
+					"displayName": "SysEnum",
+					"isImportKey": true
+				},
+				{
+					"name": "sysimage_test",
+					"type": "SysImage",
+					"displayName": "SysFile",
+					"imageField": "sysfile_test",
+					"isImportKey": true
+				},
+				{
+					"name": "sysfile_test",
+					"type": "SysFile",
+					"displayName": "SysFile",
+					"isImportKey": true
+				}
+			],
+			"tableView": [
+				{
+					"User": "admin",
+					"Columns": [
+						{
+							"Name": "recid",
+							"Width": "2000px",
+							"VisibleIndex": 3
+						},
+						{
+							"Name": "recname",
+							"Width": "90%",
+							"VisibleIndex": 0
+						},
+						{
+							"Name": "recupdated",
+							"Width": "1%",
+							"VisibleIndex": 1
+						}
+					]
+				},
+				{
+					"User": "user1",
+					"Columns": [
+						{
+							"Name": "sysstring_test",
+							"Width": "25%",
+							"VisibleIndex": 0
+						},
+						{
+							"Name": "sysnumber_test",
+							"Width": "25%",
+							"VisibleIndex": 4
+						},
+						{
+							"Name": "sysboolean_test",
+							"Width": "25%",
+							"VisibleIndex": 1
+						},
+						{
+							"Name": "sysdate_test",
+							"Width": "25%",
+							"VisibleIndex": 2
+						},
+						{
+							"Name": "sysint_test",
+							"Width": "25%",
+							"VisibleIndex": 3
+						},
+						{
+							"Name": "sysenum_test",
+							"Width": "10%",
+							"VisibleIndex": 5
+						}	
+						
+					]
+				},
+				{
+					"Group": "Users",
+					"Columns": [
+						{
+							"Name": "recid",
+							"Width": "10.899%",
+							"VisibleIndex": 1
+						},
+						{
+							"Name": "reccreated",
+							"Width": "50%",
+							"VisibleIndex": 0
+						},
+						{
+							"Name": "sysstring_test",
+							"Width": "0px",
+							"VisibleIndex": 2
+						},
+						{
+							"Name": "sysmoney_test",
+							"Width": "100px",
+							"VisibleIndex": 3
+						}
+					]
+				}
+			],
+			"advancedSearch": {
+				"visible": true,
+				"searchFields": [
+					{
+						"name": "sysstring_test"
+					},
+					{
+						"name": "sysboolean_test"
+					},
+					{
+						"name": "systimedate_test"
+					},
+					{
+						"name": "sysdate_test"
+					},
+					{
+						"name": "systime_test"
+					},
+					{
+						"name": "sysnumber_test"
+					},
+					{
+						"name": "sysint_test"
+					},
+					{
+						"name": "sysmoney_test"
+					},
+					{
+						"name": "sysdecimal_test"
+					},
+					{
+						"name": "sysenum_test"
+					},
+					{
+						"name": "sysimage_test"
+					},
+					{
+						"name": "sysfile_test"
+					}
+				]
+			}
+		},
+	// Свойство 'fieldsGroup'
+		// AutoList
+		{
+			"name": "system_autolist_table",
+			"displayName": "AutoList - системные поля",
+			"description": "В данной таблице все поля системные",
+			"historyEnabled": "true",
+			"fields": [
+				{
+					"name": "field1",
+					"type": "SysString",
+					"displayName": "field 1",
+					"isImportKey": true
+				},
+				{
+					"name": "field2",
+					"type": "SysString",
+					"displayName": "field 2",
+					"isImportKey": true
+				},
+				{
+					"name": "field3",
+					"type": "SysString",
+					"displayName": "field 3",
+					"isImportKey": true
+				},
+				{
+					"name": "field4",
+					"type": "SysString",
+					"displayName": "field 4",
+					"isImportKey": true
+				},
+				{
+					"name": "field5",
+					"type": "SysString",
+					"displayName": "field 5",
+					"isImportKey": true
+				}
+			],
+			"fieldGroups": {
+				"autoList": {
+					"displayName": "",
+					"fields": [
+						"reccode",
+						"recname",
+						"recdescription",
+						"recstate",
+						"reccreated",
+						"recupdated",
+						"recid"
+					]
+				}
+			}
+		},	
+		{
+			"name": "users_autolist_table",
+			"displayName": "AutoList - пользовательские поля",
+			"description": "В данной таблице 3 пользовательских поля (field 1, field 2, field 4) из 5",
+			"historyEnabled": "true",
+			"fields": [
+				{
+					"name": "field1",
+					"type": "SysString",
+					"displayName": "field 1",
+					"isImportKey": true
+				},
+				{
+					"name": "field2",
+					"type": "SysString",
+					"displayName": "field 2",
+					"isImportKey": true
+				},
+				{
+					"name": "field3",
+					"type": "SysString",
+					"displayName": "field 3",
+					"isImportKey": true
+				},
+				{
+					"name": "field4",
+					"type": "SysString",
+					"displayName": "field 4",
+					"isImportKey": true
+				},
+				{
+					"name": "field5",
+					"type": "SysString",
+					"displayName": "field 5",
+					"isImportKey": true
+				}
+			],
+			"fieldGroups": {
+				"autoList": {
+					"displayName": "",
+					"fields": [
+						"field1",
+						"field2",
+						"field4"
+					]
+				}
+			}
+		},		
+		{
+			"name": "mixed_autolist_table",
+			"displayName": "AutoList - смешанные поля",
+			"description": "В данной таблице 3 пользовательских поля (field 1, field 2, field 3) и 2 системных (recname, reccode)",
+			"historyEnabled": "true",
+			"fields": [
+				{
+					"name": "field1",
+					"type": "SysString",
+					"displayName": "field 1",
+					"isImportKey": true
+				},
+				{
+					"name": "field2",
+					"type": "SysString",
+					"displayName": "field 2",
+					"isImportKey": true
+				},
+				{
+					"name": "field3",
+					"type": "SysString",
+					"displayName": "field 3",
+					"isImportKey": true
+				},
+				{
+					"name": "field4",
+					"type": "SysString",
+					"displayName": "field 4",
+					"isImportKey": true
+				},
+				{
+					"name": "field5",
+					"type": "SysString",
+					"displayName": "field 5",
+					"isImportKey": true
+				}
+			],
+			"advancedSearch": {
+				"visible": true,
+				"searchFields": [
+					{
+						"name": "field1"
+					},
+					{
+						"name": "field2"
+					},
+					{
+						"name": "field3"
+					},
+					{
+						"name": "field4"
+					},
+					{
+						"name": "field5"
+					}
+				]
+			},
+			"fieldGroups": {
+				"autoList": {
+					"displayName": "",
+					"fields": [
+						"field1",
+						"field2",
+						"field3",
+						"recname",
+						"reccode"
+					]
+				}
+			}
+		},
+		// AutoLookup
+		{
+			"name": "test_autolookup_table",
+			"displayName": "AutoLookup",
+			"description": "Поле данной таблицы ссылается на таблицу 'Типы данных', где прописана группа AutoLookup",
+			"fields": [
+				{
+					"name": "testfield",
+					"type": "stringRelation",
+					"displayName": "Test field"
+				},
+				{
+					"name": "testfield2",
+					"type": "SysString",
+					"displayName": "Test field 2"
+				}
+			]
+		},
+		// Customgroups
+		{
+			"name": "system_customgroups_table",
+			"displayName": "CustomGroups - системные поля",
+			"description": "В данной таблице одна группа с системными полями (reccode, recname, recdescription)",
+			"historyEnabled": "true",
+			"fields": [
+				{
+					"name": "field1",
+					"type": "SysString",
+					"displayName": "field 1",
+					"isImportKey": true
+				},
+				{
+					"name": "field2",
+					"type": "SysString",
+					"displayName": "field 2",
+					"isImportKey": true
+				},
+				{
+					"name": "field3",
+					"type": "SysString",
+					"displayName": "field 3",
+					"isImportKey": true
+				},
+				{
+					"name": "field4",
+					"type": "SysString",
+					"displayName": "field 4",
+					"isImportKey": true
+				},
+				{
+					"name": "field5",
+					"type": "SysString",
+					"displayName": "field 5",
+					"isImportKey": true
+				}
+			],
+			"fieldGroups": {
+				"customGroups": [
+					{
+						"displayName": "Системные поля",
+						"fields": [
+							"reccode",
+							"recname",
+							"recdescription"
+						]
+					}
+				]
+			}
+		},
+		{
+			"name": "users_customgroups_table",
+			"displayName": "CustomGroups - пользовательские поля",
+			"description": "В данной таблице две группы с пользовательскими полями (field 1, field 2) и (field 4, field 5)",
+			"historyEnabled": "true",
+			"fields": [
+				{
+					"name": "field1",
+					"type": "SysString",
+					"displayName": "field 1",
+					"isImportKey": true
+				},
+				{
+					"name": "field2",
+					"type": "SysString",
+					"displayName": "field 2",
+					"isImportKey": true
+				},
+				{
+					"name": "field3",
+					"type": "SysString",
+					"displayName": "field 3",
+					"isImportKey": true
+				},
+				{
+					"name": "field4",
+					"type": "SysString",
+					"displayName": "field 4",
+					"isImportKey": true
+				},
+				{
+					"name": "field5",
+					"type": "SysString",
+					"displayName": "field 5",
+					"isImportKey": true
+				}
+			],
+			"fieldGroups": {
+				"customGroups": [
+					{
+						"displayName": "Первая группа",
+						"fields": [
+							"field1",
+							"field2"
+						]
+					},
+					{
+						"displayName": "Вторая группа",
+						"fields": [
+							"field4",
+							"field5"
+						]
+					}
+				]
+			}
+		},
+		{
+			"name": "mixed_customgroups_table",
+			"displayName": "CustomGroups - смешанные поля",
+			"description": "В данной таблице 4 группы со смешанными полями (reccode, field 1, field 2), (field 4, recname), (recdescription, field 3) и (field 5, recid)",
+			"historyEnabled": "true",
+			"fields": [
+				{
+					"name": "field1",
+					"type": "SysString",
+					"displayName": "field 1",
+					"isImportKey": true
+				},
+				{
+					"name": "field2",
+					"type": "SysString",
+					"displayName": "field 2",
+					"isImportKey": true
+				},
+				{
+					"name": "field3",
+					"type": "SysString",
+					"displayName": "field 3",
+					"isImportKey": true
+				},
+				{
+					"name": "field4",
+					"type": "SysString",
+					"displayName": "field 4",
+					"isImportKey": true
+				},
+				{
+					"name": "field5",
+					"type": "SysString",
+					"displayName": "field 5",
+					"isImportKey": true
+				}
+			],
+			"fieldGroups": {
+				"customGroups": [
+					{
+						"displayName": "Первая группа",
+						"fields": [
+							"reccode",
+							"field1"							
+						]
+					},
+					{
+						"displayName": "Вторая группа",
+						"fields": [
+							"field2",
+							"recname"
+						]
+					},
+					{
+						"displayName": "Третья группа",
+						"fields": [
+							"recdescription",
+							"field3"
+						]
+					},
+					{
+						"displayName": "Четвертая группа",						
+						"fields": [
+							"field5",
+							"recid"
+						]
+					}
+				]
+			}
+		},
+		{
+			"name": "isenabled_customgroups_table",
+			"displayName": "CustomGroups - isEnabled",
+			"description": "В данной таблице 3 группы, одна из которых отображается, если в поле reccode (Код) записано значение больше 5",
+			"historyEnabled": "true",
+			"fields": [
+				{
+					"name": "reccode"
+				},
+				{
+					"name": "field1",
+					"type": "SysString",
+					"displayName": "field 1",
+					"isImportKey": true
+				},
+				{
+					"name": "field2",
+					"type": "SysString",
+					"displayName": "field 2",
+					"isImportKey": true
+				},
+				{
+					"name": "field3",
+					"type": "SysString",
+					"displayName": "field 3",
+					"isImportKey": true
+				},
+				{
+					"name": "field4",
+					"type": "SysString",
+					"displayName": "field 4",
+					"isImportKey": true
+				},
+				{
+					"name": "field5",
+					"type": "SysString",
+					"displayName": "field 5",
+					"isImportKey": true
+				}
+			],
+			"fieldGroups": {
+				"customGroups": [
+					{
+						"displayName": "Первая группа",
+						"fields": [
+							"reccode",
+							"field1",
+							"field2"
+						]
+					},
+					{
+						"displayName": "Вторая группа",
+						"fields": [
+							"field4",
+							"recname"
+						]
+					},
+					{
+						"displayName": "Третья группа",
+						"isEnabled": "function() { return (activeRecord.reccode != null ? +activeRecord.reccode > 5 : false); }",
+						"fields": [
+							"field5",
+							"field3"
+						]
+					}
+				]
+			}
+		},
+		// Таблицы в карточке
+		{
+			"name": "relatedtable_customgroups_table",
+			"displayName": "CustomGroups - таблицы в карточке",
+			"description": "На поле 'Поле для таблицы в карточке' в днной таблице ссылается таблица 'Типы данных' для построения таблц в карточке записей",
+			"historyEnabled": "false", // для проверки historyEnabled
+			"fields": [				
+				{
+					"name": "field1",
+					"type": "SysString",
+					"displayName": "Поле для таблицы в карточке",
+					"isImportKey": true
+				}
+			],
+			"fieldGroups": {
+				"customGroups": [
+					{
+						"displayName": "Группа полей (Описана с помощью 'FieldGroup')",
+						"Type": "FieldGroup",
+						"fields": [
+							"field1"
+						]
+					},
+					{
+						"displayName": "Таблица 'Типы данных' (Width - Full)",
+						"Type": "RelatedTable",
+						"RelatedTableName": "types_table",
+						"RelatedFieldName": "edit_table_test", 						
+						"Width": "Full"
+					},
+					{
+						"displayName": "Только строка и число (Width - Half)",
+						"Type": "RelatedTable",
+						"RelatedTableName": "types_table",
+						"RelatedFieldName": "edit_table_test", 
+						"RelatedTableFields": [ "sysstring_test", "sysint_test" ],
+						"Width": "Half"													
+					},
+					{
+						"displayName": "Только дата (Width - не задано)",
+						"Type": "RelatedTable",
+						"RelatedTableName": "types_table",
+						"RelatedFieldName": "edit_table_test", 
+						"RelatedTableFields": [ "sysdate_test" ]
+					}
+				]
+			}
+		},
+	// Свойство Sorting
+		{
+		"name": "customfields_sorting_table",
+		"displayName": "Дефолтная сортировка пользовательских полей",
+		"description": "В данной таблице поля SysTime, SysTimeDate и SysBoolean сортируются по возрастанию, поля SysString и SysDate по убыванию",
+		"fields": [
+			{
+				"name": "sysstring_test",
+				"type": "SysString",
+				"displayName": "SysString"
+			},
+			{
+				"name": "sysboolean_test",
+				"type": "SysBoolean",
+				"displayName": "SysBoolean"
+			},			
+			{
+				"name": "systimedate_test",
+				"type": "SysTimeDate",
+				"displayName": "SysTimeDate"
+			},
+			{
+				"name": "sysdate_test",
+				"type": "SysDate",
+				"displayName": "SysDate"
+			},
+			{
+				"name": "systime_test",
+				"type": "SysTime",
+				"displayName": "SysTime"
+			}
+			],
+			"advancedSearch": {
+				"visible": true,
+				"searchFields": [
+					{
+						"name": "sysstring_test"
+					},
+					{
+						"name": "sysboolean_test"
+					},			
+					{
+						"name": "systimedate_test"
+					},
+					{
+						"name": "sysdate_test"
+					},
+					{
+						"name": "systime_test"
+					}
+				]
+			},
+			"sorting":
+				[ {
+					"fieldName": "sysstring_test", "direction": "DESC"
+				  },
+				  {
+					"fieldName": "sysboolean_test", "direction": "ASC"
+				  },
+				  "systimedate_test",
+				  {
+					"fieldName": "sysdate_test", "direction": "DESC"
+				  },					  
+				  "systime_test"		  			 				  
+				]
+		},
+		{
+			"name": "customfields_sorting_table2",
+			"displayName": "Дефолтная сортировка пользовательских полей",
+			"description": "В данной таблице поля SysNumber, SysDecimal и SysEnum сортируются по возрастанию, поля SysInt и SysMoney по убыванию",
+			"fields": [
+				{
+					"name": "sysnumber_test",
+					"type": "SysNumber",
+					"displayName": "SysNumber"
+				},
+				{
+					"name": "sysint_test",
+					"type": "SysInt",
+					"displayName": "SysInt"
+				},			
+				{
+					"name": "sysdecimal_test",
+					"type": "SysDecimal",
+					"displayName": "SysDecimal"
+				},
+				{
+					"name": "sysmoney_test",
+					"type": "SysMoney",
+					"displayName": "SysMoney"
+				},
+				{
+					"name": "sysenum_test",
+					"type": "sysenum_type",
+					"displayName": "SysEnum"
+				}
+				],
+				"sorting":
+					[ "sysnumber_test",	
+					  {
+						"fieldName": "sysint_test", "direction": "DESC"
+					  },				  
+					  "sysdecimal_test",
+					  {
+						"fieldName": "sysmoney_test", "direction": "DESC"
+					  },			  				  
+					  {
+						"fieldName": "sysenum_test", "direction": "ASC"
+					  }					  
+					]
+		},		
+		{
+			"name": "systemfields_sorting_table",
+			"displayName": "Дефолтная сортировка системных полей",
+			"description": "В данной таблице поля ",
+			"fields": [
+				{
+					"name": "recid",
+					"displayName": "RecId"
+				},
+				{
+					"name": "recname",
+					"displayName": "RecName"
+				},
+				{
+					"name": "reccode",
+					"displayName": "RecCode"
+				},
+				{
+					"name": "reccreated",
+					"displayName": "RecCreated"
+				},
+				{
+					"name": "recupdated",
+					"displayName": "RecUpdated"
+				}		
+			],			
+			"sorting":
+				[ "recid",				  
+				  "recname",
+				  {
+					"fieldName": "reccode", "direction": "DESC"
+				  },
+				  {
+					"fieldName": "reccreated", "direction": "ASC"
+				  },
+				  {
+					"fieldName": "recupdated", "direction": "DESC"
+				  }   
+				]
+			
+		},
+		{
+			"name": "mixedfields_sorting_table",
+			"displayName": "Дефолтная сортировка системных и пользовательских полей в одной таблице",
+			"description": "В данной таблице системные поля RecId, RecUpdated и поле SysFile сортируются по возрастанию, поля SysRelation и SysFias по убыванию",
+			"fields": [
+				{
+					"name": "recid",
+					"displayName": "RecId"
+				},
+				{
+					"name": "recupdated",
+					"displayName": "RecUpdated"
+				},
+				{
+					"name": "sysrelation_test", 
+					"type": "editTableRelation",
+					"displayName": "SysRelation"
+				},
+				{
+					"name": "sysfile_test",
+					"type": "SysFile",
+					"displayName": "SysFile"
+				},
+				{
+					"name": "sysfias_test",
+					"type": "SysFias",
+					"displayName": "SysFias"
+				}		
+			],			
+			"sorting":
+				[ "recid",				  
+				  "recupdated",
+				  {
+					"fieldName": "sysrelation_test", "direction": "DESC"
+				  },
+				  {
+					"fieldName": "sysfile_test", "direction": "ASC"
+				  },
+				  {
+					"fieldName": "sysfias_test", "direction": "DESC"
+				  }   
+				]			
+		},
+	// Свойство Events
+		{
+			"name": "test_events_onopen_table1",
+			"displayName": "Проверка свойства onOpen (свойство Events задано корректно)",
+			"isEnabled": "function () { return true; }",
+			"fields": [
+				{
+					"name": "test_string_field",
+					"type": "SysString",
+					"displayName": "Текстовое поле"
+				},
+				{
+					"name": "test_int_field",
+					"type": "SysInt",
+					"displayName": "Числовое поле"
+				}
+			],
+			"events": [
+				{
+					"onOpen": "onopen_test_method"
+				}
+			]
+		},
+		{
+			"name": "test_events_onopen_table2",
+			"displayName": "Проверка свойства onOpen (свойство Events содержит событие onOpen в нижнем регистре - onopen)",
+			"isEnabled": "function () { return true; }",
+			"fields": [
+				{
+					"name": "test_string_field",
+					"type": "SysString",
+					"displayName": "Текстовое поле"
+				},
+				{
+					"name": "test_int_field",
+					"type": "SysInt",
+					"displayName": "Числовое поле"
+				}
+			],
+			"events": [
+				{
+					"onopen": "onopen_test_method"
+				}
+			]
+		},
+		{
+			"name": "test_events_onopen_table3",
+			"displayName": "Проверка свойства onOpen (свойство Events содержит событие onOpen, для которого указан не существующий метод)",
+			"isEnabled": "function () { return true; }",
+			"fields": [
+				{
+					"name": "test_string_field",
+					"type": "SysString",
+					"displayName": "Текстовое поле"
+				},
+				{
+					"name": "test_int_field",
+					"type": "SysInt",
+					"displayName": "Числовое поле"
+				}
+			],
+			"events": [
+				{
+					"onOpen": "onopen_test_method_not_exist"
+				}
+			]
+		},
+		{
+			"name": "test_events_onopen_table4",
+			"displayName": "Проверка свойства onOpen (свойство Events содержит событие onOpen, для которого не указан метод)",
+			"isEnabled": "function () { return true; }",
+			"fields": [
+				{
+					"name": "test_string_field",
+					"type": "SysString",
+					"displayName": "Текстовое поле"
+				},
+				{
+					"name": "test_int_field",
+					"type": "SysInt",
+					"displayName": "Числовое поле"
+				}
+			],
+			"events": [
+				{
+					"onOpen": ""
+				}
+			]
+		},
+		{
+			"name": "test_events_onopen_table5",
+			"displayName": "Проверка свойства onOpen (свойство Events не содержит элементов)",
+			"isEnabled": "function () { return true; }",
+			"fields": [
+				{
+					"name": "test_string_field",
+					"type": "SysString",
+					"displayName": "Текстовое поле"
+				},
+				{
+					"name": "test_int_field",
+					"type": "SysInt",
+					"displayName": "Числовое поле"
+				}
+			],
+			"events": []
+		},
+		{
+			"name": "test_events_onopen_table6",
+			"displayName": "Проверка свойства onOpen (функция возвращает ошибку)",
+			"isEnabled": "function () { return true; }",
+			"fields": [
+				{
+					"name": "test_string_field",
+					"type": "SysString",
+					"displayName": "Текстовое поле"
+				},
+				{
+					"name": "test_int_field",
+					"type": "SysInt",
+					"displayName": "Числовое поле"
+				}
+			],
+			"events": [
+				{
+					"onopen": "onopen_test_method_error"
+				}
+			]
+		},
+// Методы
+	// Методы типа MethodProvider
+	{
+		"name": "findbyrecid_method_test_table",
+		"displayName": "FindByRecId",
+		"description": "Таблица для тестирования метода FindByRecId класса MethodProvider",
+		"fields": [
+			{
+				"name": "testfield",
+				"type": "SysString",
+				"displayName": "Test field"
+			}
+		],
+		"methods": [
+			{
+				"name": "test_findbyrecid_success",
+				"displayName": "Тест функции FindByRecId (Успех)",
+				"fields": []
+			},
+			{
+				"name": "test_findbyrecid_error_nonexistent_recid",
+				"displayName": "Тест функции FindByRecId (Ошибка: Не существующий recid)",
+				"fields": []
+			},
+			{
+				"name": "test_findbyrecid_error_null_recid",
+				"displayName": "Тест функции FindByRecId (Ошибка: Параметр recid установлен в NULL)",
+				"fields": []
+			}
+		],
+		"menus": [
+			"methodFindByRecIdContextMenu"
+		]
+	},
+	{
+		"name": "findbyparams_method_test_table",
+		"displayName": "FindByParams",
+		"description": "Таблица для тестирования метода FindByParams класса MethodProvider",
+		"fields": [
+			{
+				"name": "testfield1",
+				"type": "SysString",
+				"displayName": "Text field"
+			},
+			{
+				"name": "testfield2",
+				"type": "SysInt",
+				"displayName": "Integer field"
+			},
+			{
+				"name": "testfield3",
+				"type": "SysGUID",
+				"displayName": "GUID field"
+			}
+		],
+		"methods": [
+			{
+				"name": "test_findbyparams",
+				"displayName": "Тест функции FindByParams",
+				"fields": [
+					{
+						"name": "testfield1",
+						"type": "SysString",
+						"displayName": "Текстовое поле"
+					},
+					{
+						"name": "testfield2",
+						"type": "SysInt",
+						"displayName": "Целочисленное поле"
+					},
+					{
+						"name": "testfield3",
+						"type": "SysGUID",
+						"displayName": "Поле для ввода идентификатора"
+					}
+				]
+			},
+			{
+				"name": "test_findbyparams_sorted",
+				"displayName": "Тест функции FindByParams (С сортировкой по целочисленному полю)",
+				"fields": [
+					{
+						"name": "testfield1",
+						"type": "SysString",
+						"displayName": "Текстовое поле"
+					}
+				]
+			},
+			{
+				"name": "test_findbyparams_limit",
+				"displayName": "Тест функции FindByParams (С ограничением на вывод строк до 2х - LIMIT 2)",
+				"fields": [
+					{
+						"name": "testfield1",
+						"type": "SysString",
+						"displayName": "Текстовое поле"
+					}
+				]
+			}
+		],
+		"menus": [
+			"methodFindByParamsContextMenu"
+		]
+	}
+	],
+	"shadowTasks": [
+		{
+			"name": "test_success",
+			"description": "Фоновая задача возвращающая результат 'Успех'",
+			"typeCode": "js",
+			"repeatAfterSec": 30,
+			"enabled": false
+		},
+		{
+			"name": "test_error",
+			"description": "Фоновая задача возвращающая результат 'Ошибка'",
+			"typeCode": "js",
+			"repeatAfterSec": 30,
+			"enabled": false
+		},
+		{
+			"name": "test_exception",
+			"description": "Фоновая задача в которой происходит необработанное исключение",
+			"typeCode": "js",
+			"repeatAfterSec": 30,
+			"enabled": false
+		},
+		{
+			"name": "test_badresponse",
+			"description": "Фоновая задача возвращающая некорректный результат",
+			"typeCode": "js",
+			"repeatAfterSec": 30,
+			"enabled": false
+		},
+		{
+			"name": "test_invalid_content",
+			"description": "Фоновая задача возвращающая контент содержащий различные недопустимые символы",
+			"typeCode": "js",
+			"repeatAfterSec": 30,
+			"enabled": false
+		},
+		{
+			"name": "test_use_fetch",
+			"description": "Фоновая задача использующая вызов метода fetch",
+			"typeCode": "js",
+			"repeatAfterSec": 30,
+			"enabled": false
+		},
+		{
+			"name": "test_update_field",
+			"description": "Фоновая задача обновляет поле test_field2 для каждой записи таблицы выполнения фоновых задач",
+			"typeCode": "js",
+			"repeatAfterSec": 10,
+			"enabled": false
+		},
+		{
+			"name": "autosync",
+			"description": "Автосинхронизация",
+			"typeCode": "js",
+			"repeatAfterSec": 60,
+			"enabled": false
+		},
+		{
+			"name": "Test.ShadowTasks.TestShadowTask.UpdateFieldValue",
+			"description": "Фоновая задача по обновлению записи в таблице test_shadowtask_table",
+			"typeCode": "csharp",
+			"repeatAfterSec": 5,
+			"enabled": false
+		}
+	]
+}
+
